@@ -44,6 +44,8 @@
                 appendDots: $(element),
                 arrows: true,
                 asNavFor: null,
+                // prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
+                // nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>',
                 autoplay: false,
                 autoplaySpeed: 3000,
                 centerMode: false,
@@ -191,7 +193,7 @@
 
         _.$slideTrack.find('.slick-active').attr({
             'aria-hidden': 'false'
-        }).find('a, input, select').attr({
+        }).find('a, input, button, select').attr({
             'tabindex': '0'
         });
 
@@ -1305,7 +1307,7 @@
         _.$slides.add(_.$slideTrack.find('.slick-cloned')).attr({
             'aria-hidden': 'true',
             'tabindex': '-1'
-        }).find('a, input, select').attr({
+        }).find('a, input, button, select').attr({
             'tabindex': '-1'
         });
 
@@ -1333,20 +1335,19 @@
                     'role': 'presentation'
                 });
 
-                // $(this).find('button').first().attr({
-                //     'role': 'tab',
-                //     'id': 'slick-slide-control' + _.instanceUid + i,
-                //     'aria-controls': 'slick-slide' + _.instanceUid + mappedSlideIndex,
-                //     'aria-label': (i + 1) + ' of ' + numDotGroups,
-                //     'aria-selected': null,
-                //     'tabindex': '-1'
-                // });
+                $(this).find('button').first().attr({
+                    'role': 'tab',
+                    'id': 'slick-slide-control' + _.instanceUid + i,
+                    'aria-controls': 'slick-slide' + _.instanceUid + mappedSlideIndex,
+                    'aria-label': (i + 1) + ' of ' + numDotGroups,
+                    'aria-selected': null,
+                    'tabindex': '-1'
+                });
 
-            // }).eq(_.currentSlide).find('button').attr({
-            //     'aria-selected': 'true',
-            //     'tabindex': '0'
-            })
-            .end();
+            }).eq(_.currentSlide).find('button').attr({
+                'aria-selected': 'true',
+                'tabindex': '0'
+            }).end();
         }
 
         for (var i=_.currentSlide, max=i+_.options.slidesToShow; i < max; i++) {
