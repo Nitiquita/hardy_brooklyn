@@ -36,10 +36,89 @@ body{
 /*NAV*/
 /*------------------------------------------------*/
 
-#nav-items {
-   visibility: hidden;
+#nav, 
+#nav-items{
+    float: right;
+}
+
+#nav-items li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 25px;
+    padding-top: 25px;
 }
 
 /*------------------------------------------------*/
-/*NAV*/
+/*EVENTS*/
 /*------------------------------------------------*/
+
+#event-headline {
+    padding-top: 400px;
+}
+
+#event-headline h1 {
+    margin: 0;
+    text-align: center;
+}
+
+#showEvent {
+    margin: 100px auto;
+    background-color: white;
+    font-size: 75%;
+    width: 650px;
+    padding: 25px;
+    text-align: center;
+}
+
+/*------------------------------------------------*/
+/*ABOUT*/
+/*------------------------------------------------*/
+
+#about {
+    padding: 50px 25px;
+}
+
+#about p:first-of-type {
+    margin-top: 25px;
+}
+
+#about p {
+    margin-top: 25px;
+}
+
+/*------------------------------------------------*/
+/*CONTACT*/
+/*------------------------------------------------*/
+
+#contact {
+    font-weight: bolder
+}
+
+#contact h1 {
+    color: rgb(149, 39, 149); 
+    padding-top: 75px;
+    padding-left: 50px;
+}
+
+#contact form{
+    color: rgb(107, 22, 107); 
+    padding-top: 25px;
+    padding-left: 50px;
+}
+
+input[type=text] {
+    font-size: 50%;
+    height: 25px;
+}
+
+
+
+button {
+    margin-top: 25px;
+    height: 50px;
+    width: 150px;
+    background-color:  rgb(121, 22, 121);
+    color: white;
+    font-size: 75%;
+    border-radius: 25px
+}

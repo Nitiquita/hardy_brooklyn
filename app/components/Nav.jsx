@@ -1,27 +1,52 @@
-'use strict'
-import React, { Component } from 'react';
+"use strict";
+import React, { Component } from "react";
+
+let navStyles = {
+  showNav: {
+    visibility: "visible"
+  },
+  hideNav: {
+    visibility: "hidden"
+  }
+};
 
 export default class Nav extends Component {
-    constructor(props) {
-        super(props)
-        this.handleMouseOver = this.handleMouseOver.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      nav: "hideNav"
+    };
+    this.showNav = this.showNav.bind(this);
+    this.hideNav = this.hideNav.bind(this);
+  }
 
-    handleMouseOver() {
-        
-    }
+  showNav() {
+    this.setState({
+      nav: "showNav"
+    });
+  }
 
-    render() {
-        return (
-            <div>
-            <img id="nav" src={require("../../public1/icons/icons8-menu.svg")} onMouseOver={this.handleMouseOver}/>
-            <ul id="nav-items">
-            <li>Events</li>
-            <li>About</li>
-            <li>Contact</li>
-            </ul>
-            </div>
-        )
-    }
+  hideNav() {
+    this.setState({
+      nav: "hideNav"
+    });
+  }
 
+  render() {
+    return (
+      <div>
+        <img
+          id="nav"
+          src={require("../../public1/icons/icons8-menu.svg")}
+          onMouseEnter={this.showNav}
+        />
+        <ul id="nav-items" style={navStyles[this.state.nav]}
+        onMouseLeave={this.hideNav}>
+          <li>Events</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    );
+  }
 }

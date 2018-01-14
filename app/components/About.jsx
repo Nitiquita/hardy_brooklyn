@@ -24,10 +24,10 @@ export default class About extends Component {
   render() {
     const styles = {
       height: this.state.height,
-      width: this.state.width
+    //   width: this.state.width
     };
     return (
-      <section id="about">
+      <section style={styles} id="about">
         <h1>Who is Hardy Brooklyn?</h1>
         <p>
           Born and raised in Brooklyn and Nassau County (Long Island), Hardy was
