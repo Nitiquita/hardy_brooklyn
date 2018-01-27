@@ -42,10 +42,15 @@ body{
 }
 
 #nav-items li {
+    color: rgb(107, 22, 107);
     display: inline-block;
     list-style: none;
-    margin-right: 25px;
+    margin-left: 25px;
     padding-top: 25px;
+}
+
+#nav-items li:first-of-type {
+    margin-left: 100px;
 }
 
 /*------------------------------------------------*/
@@ -57,6 +62,7 @@ body{
 }
 
 #event-headline h1 {
+    color: rgb(107, 22, 107);
     margin: 0;
     text-align: center;
 }
@@ -68,6 +74,7 @@ body{
     width: 650px;
     padding: 25px;
     text-align: center;
+    border: solid goldenrod 10px;
 }
 
 /*------------------------------------------------*/
@@ -75,7 +82,9 @@ body{
 /*------------------------------------------------*/
 
 #about {
-    padding: 50px 25px;
+    color: rgb(107, 22, 107);
+    font-weight: bolder;
+    padding: 100px 25px;
 }
 
 #about p:first-of-type {
@@ -91,19 +100,23 @@ body{
 /*------------------------------------------------*/
 
 #contact {
-    font-weight: bolder
+    font-weight: bolder;
 }
 
 #contact h1 {
+    text-align: center;
     color: rgb(149, 39, 149);
     padding-top: 75px;
     padding-left: 50px;
 }
 
 #contact form{
+    margin: auto;
+    width: 900px;
     color: rgb(107, 22, 107);
     padding-top: 25px;
     padding-left: 50px;
+    background-color: grey;
 }
 
 input[type=text] {
