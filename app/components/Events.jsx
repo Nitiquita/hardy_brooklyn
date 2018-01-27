@@ -57,7 +57,7 @@ export default class Events extends Component {
     };
     console.log(this.state.event);
     return (
-      <section style={styles}>
+      <section style={styles} id="events">
         <div id="event-headline">
           <h1 onMouseEnter={this.showEvent} >
             Where can I see Hardy Brooklyn?

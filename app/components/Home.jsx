@@ -1,5 +1,6 @@
 'use strict'
 import React, { Component } from 'react';
+import ScrollableAnchor from 'react-scrollable-anchor'
 import Nav from './Nav'
 import Events from './Events';
 import Carousel1 from './Carousel1'
@@ -24,6 +25,6 @@ export default class Home extends Component {
             <Contact/>
             </div>
         )
-        
+
     }
 }

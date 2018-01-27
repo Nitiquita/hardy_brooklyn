@@ -42,9 +42,9 @@ export default class Nav extends Component {
         />
         <ul id="nav-items" style={navStyles[this.state.nav]}
         onMouseLeave={this.hideNav}>
-          <li>Events</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     );
