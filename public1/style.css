@@ -14,8 +14,8 @@ html, body, button {
 
 .parallax {
     /* The image used */
-    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("/img/kelly-sikkema-108975.jpg");
-
+    /* background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("/img/kelly-sikkema-108975.jpg"); */
+    background-color: rgb(241, 178, 241);
     /* Set a specific height */
     /* height: 2000px;  */
 
