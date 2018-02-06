@@ -17,13 +17,16 @@ module.exports = {
           loader: 'babel-loader',
           query: {
             presets: ['react', 'es2015']
-          }, 
+          },
         },
         {
-          test: /\.(jpe?g|png|gif|svg)$/i, 
+          test: /\.(jpe?g|png|gif|svg)$/i,
           loader: "url-loader?name=app/images/[name].[ext]"
         },
+        {
+          test: /\.css$/,
+          loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
+      }
       ]
     }
   };
-  

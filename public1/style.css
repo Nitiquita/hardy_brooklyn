@@ -10,12 +10,13 @@
 html, body, button {
     font-family: 'Shadows Into Light Two', cursive;
     font-size: 2vw;
+    overflow-x: hidden;
 }
 
 .parallax {
     /* The image used */
-    /* background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("/img/kelly-sikkema-108975.jpg"); */
-    background-color: rgb(241, 178, 241);
+    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("/img/kelly-sikkema-108975.jpg");
+
     /* Set a specific height */
     /* height: 2000px;  */
 
@@ -29,8 +30,6 @@ html, body, button {
 body{
     height:100%
    }
-
-
 
 /*------------------------------------------------*/
 /*NAV*/
@@ -49,8 +48,17 @@ body{
     padding-top: 25px;
 }
 
+#nav-items li a {
+    text-decoration: none;
+}
+
 #nav-items li:first-of-type {
     margin-left: 100px;
+}
+
+#login {
+    padding-top: 20px;
+    text-align: center;
 }
 
 /*------------------------------------------------*/
@@ -58,7 +66,7 @@ body{
 /*------------------------------------------------*/
 
 #event-headline {
-    padding-top: 400px;
+    padding-top: 150px;
 }
 
 #event-headline h1 {
@@ -85,16 +93,52 @@ body{
     color: rgb(107, 22, 107);
     font-weight: bolder;
     padding: 100px 25px;
+    display: inline-block;
 }
 
-#about p:first-of-type {
+/* #about p:first-of-type {
     margin-top: 25px;
 }
 
 #about p {
     margin-top: 25px;
+} */
+
+.circle{
+    display: inline-block;
+    font-size: 60%;
+    background-color: white;
+    text-align: center;
+    border-radius: 50%;;
+    margin: 0;
 }
 
+#circle-1 {
+    padding: 50px;
+    margin: 0;
+    height: 500px;
+    width: 500px;
+}
+
+#circle-2 {
+    padding: 50px;
+    height: 300px;
+    width: 300px;
+    /* float: right; */
+}
+
+#circle-3 {
+    padding: 50px;
+    height: 300px;
+    width: 300px;
+    /* float: right; */
+}
+
+#circle-4 {
+    padding: 50px;
+    height: 300px;
+    width: 300px;
+}
 /*------------------------------------------------*/
 /*CONTACT*/
 /*------------------------------------------------*/
@@ -108,15 +152,18 @@ body{
     color: rgb(149, 39, 149);
     padding-top: 75px;
     padding-left: 50px;
+    padding-bottom: 20px;
 }
 
 #contact form{
+    font-size: 80%;
     margin: auto;
     width: 900px;
     color: rgb(107, 22, 107);
     padding-top: 25px;
     padding-left: 50px;
-    background-color: grey;
+    background-color: rgb(194, 194, 194);
+    padding-bottom: 40px;
 }
 
 input[type=text] {
@@ -124,6 +171,13 @@ input[type=text] {
     height: 25px;
 }
 
+input[type=radio] {
+    margin-left: 20px;
+}
+
+input[type=text] {
+    margin: 10px 0;
+}
 
 
 button {

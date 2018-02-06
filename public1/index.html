@@ -15,4 +15,23 @@
 <body>
     <div class="parallax" id="app"></div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBUORmX2qG7BXFC4hqfKAq0Y6HMAsLTGbw",
+        authDomain: "hardy-brooklyn.firebaseapp.com",
+        databaseURL: "https://hardy-brooklyn.firebaseio.com",
+        projectId: "hardy-brooklyn",
+        storageBucket: "hardy-brooklyn.appspot.com",
+        messagingSenderId: "392580429077"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<!-- <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script> -->
+
 </html>

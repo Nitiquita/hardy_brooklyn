@@ -20,22 +20,8 @@ export default class Events extends Component {
       height: 0,
       event: "hideEvent"
     };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.showEvent = this.showEvent.bind(this);
     this.hideEvent = this.hideEvent.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
   showEvent() {
@@ -52,12 +38,10 @@ export default class Events extends Component {
 
   render() {
     const styles = {
-      height: this.state.height,
-      // width: this.state.width
+      height: this.props.height
     };
-    console.log(this.state.event);
     return (
-      <section style={styles} id="events">
+      <section id="events" style={styles}>
         <div id="event-headline">
           <h1 onMouseEnter={this.showEvent} >
             Where can I see Hardy Brooklyn?
