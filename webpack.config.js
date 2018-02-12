@@ -2,7 +2,8 @@ module.exports = {
     entry: './app/main.jsx',
     output: {
       path: __dirname,
-      filename: './public1/bundle.js'
+      filename: './public1/bundle.js',
+      publicPath: '/'
     },
     context: __dirname,
     devtool: 'source-map',
@@ -28,5 +29,8 @@ module.exports = {
           loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
       }
       ]
-    }
+    },
+    devServer: {
+      historyApiFallback: true,
+    },
   };

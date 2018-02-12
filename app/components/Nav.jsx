@@ -1,6 +1,7 @@
 "use strict";
 import React, { Component } from "react";
-import { auth } from "../../firebase"
+import { Link, Redirect} from "react-router-dom";
+import { auth } from "../../firebase";
 
 let navStyles = {
   showNav: {
@@ -17,6 +18,12 @@ let loginStyles = {
   },
   hideLogin: {
     visibility: "hidden"
+  },
+  showLoggedIn: {
+    visibility: "visible"
+  },
+  hideLoggedIn: {
+    visibility: "hidden"
   }
 };
 
@@ -27,16 +34,26 @@ export default class Nav extends Component {
       nav: "hideNav",
       login: "hideLogin",
       email: "",
-      password: ""
+      password: "",
+      loggedIn: "hideLoggedIn"
     };
     this.showNav = this.showNav.bind(this);
     this.hideNav = this.hideNav.bind(this);
     this.showLogin = this.showLogin.bind(this);
     this.hideLogin = this.hideLogin.bind(this);
+    this.hideLoggedIn = this.hideLoggedIn.bind(this);
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.logOut = this.logOut.bind(this);
+  }
 
+  logOut() {
+    auth.signOut().then(function() {
+      console.log("signed out")
+    }).catch(function(error) {
+      console.log(error)
+    });
   }
 
   showNav() {
@@ -52,14 +69,39 @@ export default class Nav extends Component {
   }
 
   showLogin() {
-    this.setState({
-      login: "showLogin"
+    let isUser = false;
+    const userPromise = new Promise(function(resolve, reject) {
+      auth.onAuthStateChanged(function(user) {
+        if (user) {
+          isUser = true;
+        } else {
+          isUser = false;
+        }
+        resolve(isUser)
+      })
+    }).then(user => {
+      if (user) {
+        this.setState({
+          loggedIn: true
+        })
+    } else {
+      console.log(user)
+        this.setState({
+          login: "showLogin"
+        })
+    }
     })
   }
 
   hideLogin() {
     this.setState({
       login: "hideLogin"
+    })
+  }
+
+  hideLoggedIn() {
+    this.setState({
+      loggedIn: "hideLoggedIn"
     })
   }
 
@@ -80,23 +122,33 @@ export default class Nav extends Component {
       var errorCode = error.code;
       var errorMessage = error.message;
     });
-    auth.onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
-        console.log(email)
-      } else {
-        console.log('no user')
+
+    let userPromise = new Promise (function(resolve, reject) {
+      let isUser = false;
+      auth.onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+          var displayName = user.displayName;
+          var email = user.email;
+          var emailVerified = user.emailVerified;
+          var photoURL = user.photoURL;
+          var isAnonymous = user.isAnonymous;
+          var uid = user.uid;
+          var providerData = user.providerData;
+          isUser = true;
+          resolve(isUser)
+        } else {
+          console.log('no user')
+        }
+      });
+    }).then(user => {
+      if(user) {
+        this.setState({
+          login: "hideLogin",
+          loggedIn: "showLoggedIn"
+        })
       }
-    });
-
-
+    })
   }
 
   render() {
@@ -114,6 +166,13 @@ export default class Nav extends Component {
           <li><a href="#contact">Contact</a></li>
           <li onClick={this.showLogin}>Login</li>
         </ul>
+        <div id="logged-in" style={loginStyles[this.state.loggedIn]}>
+        <h1>You are logged in!</h1>
+        <button onClick={this.logOut}>logout</button>
+        <button onClick={this.hideLoggedIn}>hide</button>
+        <br/>
+        <Link to="/admin">Go to admin page</Link>
+        </div>
         <form id="login" style={loginStyles[this.state.login]} onSubmit={this.handleSubmit}>
           ADMIN USE ONLY
           <br/>
@@ -123,7 +182,7 @@ export default class Nav extends Component {
           Password:
           <input type="password" name="password" onChange={this.handleChange2}/>
           <br/>
-          <button >submit</button>
+          <button>submit</button>
           <button onClick={this.hideLogin}>hide</button>
         </form>
       </div>

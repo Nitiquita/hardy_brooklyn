@@ -61,6 +61,12 @@ body{
     text-align: center;
 }
 
+#logged-in {
+    padding-top: 20px;
+    text-align: center;
+}
+
+
 /*------------------------------------------------*/
 /*EVENTS*/
 /*------------------------------------------------*/
@@ -75,7 +81,14 @@ body{
     text-align: center;
 }
 
+#container {
+    margin: 100px auto;
+    width: 650px;
+    text-align: center;
+}
+
 #showEvent {
+    display: inline-block;
     margin: 100px auto;
     background-color: white;
     font-size: 75%;
@@ -189,3 +202,8 @@ button {
     font-size: 75%;
     border-radius: 25px
 }
+
+/*------------------------------------------------*/
+/*CONTACT*/
+/*------------------------------------------------*/
+

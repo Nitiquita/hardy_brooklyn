@@ -1,6 +1,7 @@
 "use strict";
 
 import React, { Component } from "react";
+import Slider from "react-slick";
 
 let eventStyles = {
   showEvent: {
@@ -10,7 +11,6 @@ let eventStyles = {
     display: "none"
   }
 };
-
 
 export default class Events extends Component {
   constructor(props) {
@@ -40,23 +40,37 @@ export default class Events extends Component {
     const styles = {
       height: this.props.height
     };
+    const settings = {
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      dots: true,
+    };
     return (
       <section id="events" style={styles}>
         <div id="event-headline">
-          <h1 onMouseEnter={this.showEvent} >
-            Where can I see Hardy Brooklyn?
-          </h1>
+          <h1 onMouseEnter={this.showEvent}>Where can I see Hardy Brooklyn?</h1>
         </div>
-        <div id="showEvent" style={eventStyles[this.state.event]}
-        onMouseLeave={this.hideEvent}>
-          Solas Studio and Hardy Brooklyn Present
-          <br /> A Nude Live Art Soiree
-          <br /> January 9, 2018 at 6pm
-          <br /> Solas Studio
-          <br /> West 30th Street
-          <br /> New York, NY 10001
-          <br />
-          <a href="https://www.brownpapertickets.com/event/3213481">Tickets</a>
+        <div
+          id="container"
+          style={eventStyles[this.state.event]}
+          onMouseLeave={this.hideEvent}
+        >
+          <Slider {...settings}>
+            <div id="showEvent">
+              Solas Studio and Hardy Brooklyn Present
+              <br /> A Nude Live Art Soiree
+              <br /> January 9, 2018 at 6pm
+              <br /> Solas Studio
+              <br /> West 30th Street
+              <br /> New York, NY 10001
+              <br />
+              <a href="https://www.brownpapertickets.com/event/3213481">
+                Tickets
+              </a>
+            </div>
+          </Slider>
         </div>
       </section>
     );
