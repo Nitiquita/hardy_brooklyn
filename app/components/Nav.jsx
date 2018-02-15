@@ -2,28 +2,30 @@
 import React, { Component } from "react";
 import { Link, Redirect} from "react-router-dom";
 import { auth } from "../../firebase";
+import { ScrollableAnchor } from "react-scrollable-anchor";
+import Scrollchor from 'react-scrollchor';
 
 let navStyles = {
   showNav: {
-    visibility: "visible"
+    display: "block"
   },
   hideNav: {
-    visibility: "hidden"
+    display: "none"
   }
 }
 
 let loginStyles = {
   showLogin: {
-    visibility: "visible"
+    display: "block"
   },
   hideLogin: {
-    visibility: "hidden"
+    display: "none"
   },
   showLoggedIn: {
-    visibility: "visible"
+    display: "block"
   },
   hideLoggedIn: {
-    visibility: "hidden"
+    display: "none"
   }
 };
 
@@ -161,9 +163,9 @@ export default class Nav extends Component {
         />
         <ul id="nav-items" style={navStyles[this.state.nav]}
         onMouseLeave={this.hideNav}>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><Scrollchor to="#events">Events</Scrollchor></li>
+          <li><Link to="/#about">About</Link></li>
+          <li><Link to="/#contact">Contact</Link></li>
           <li onClick={this.showLogin}>Login</li>
         </ul>
         <div id="logged-in" style={loginStyles[this.state.loggedIn]}>

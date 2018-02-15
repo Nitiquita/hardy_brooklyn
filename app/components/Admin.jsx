@@ -105,7 +105,7 @@ export default class Admin extends Component {
       height: this.state.height
     };
     return (
-      <section style={styles}>
+      <section id="admin" style={styles}>
         <form onSubmit={this.handleSubmit}>
           <h1>Add Event Information</h1>
           Event Title{" "}
@@ -115,21 +115,26 @@ export default class Admin extends Component {
             name="eventTitle"
             onChange={this.handleEventTitle}
           />
+          <br/>
           Date{" "}
           <input value={this.state.eventDate} type="text" name="eventDate" onChange={this.handleEventDate} />
+          <br/>
           Event Location Name<input
             value={this.state.eventLocation || ''}
             type="text"
             name-="eventLocation"
             onChange={this.handleEventLocation}
           />
-          Adddress{" "}
+          <br/>
+          Address{" "}
           <input
             value={this.state.eventAddress || ''}
             type="text"
             name="eventAddress"
             onChange={this.handleEventAddress}
           />
+          <br/>
+          <div  id="ticket-link">
           <h1>Add Ticket Link</h1>
           Link{" "}
           <input
@@ -138,11 +143,12 @@ export default class Admin extends Component {
             name="ticketLink"
             onChange={this.handleTicketLink}
           />
+          </div>
           <button>submit</button>
-        </form>
+
 
         <h1>Add and Edit Photos</h1>
-
+        </form>
         {/* show all photos
           allow upload of photos
           admin can select which photos appear in rotation */}

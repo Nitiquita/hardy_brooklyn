@@ -72,7 +72,7 @@ body{
 /*------------------------------------------------*/
 
 #event-headline {
-    padding-top: 150px;
+    padding-top: 300px;
 }
 
 #event-headline h1 {
@@ -189,7 +189,7 @@ input[type=radio] {
 }
 
 input[type=text] {
-    margin: 10px 0;
+    margin-top: 10px;
 }
 
 
@@ -204,6 +204,19 @@ button {
 }
 
 /*------------------------------------------------*/
-/*CONTACT*/
+/*ADMIN PAGE*/
 /*------------------------------------------------*/
 
+#admin {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    background-color: rgb(212, 150, 231);
+}
+
+#admin form {
+    padding: 200px;
+}
+
+#ticket-link {
+    float: right;
+}

@@ -52,13 +52,12 @@ export default class Events extends Component {
         <div id="event-headline">
           <h1 onMouseEnter={this.showEvent}>Where can I see Hardy Brooklyn?</h1>
         </div>
-        <div
-          id="container"
-          style={eventStyles[this.state.event]}
-          onMouseLeave={this.hideEvent}
-        >
-          <Slider {...settings}>
-            <div id="showEvent">
+
+
+
+
+            <div style={eventStyles[this.state.event]}
+          onMouseLeave={this.hideEvent} id="showEvent">
               Solas Studio and Hardy Brooklyn Present
               <br /> A Nude Live Art Soiree
               <br /> January 9, 2018 at 6pm
@@ -70,8 +69,8 @@ export default class Events extends Component {
                 Tickets
               </a>
             </div>
-          </Slider>
-        </div>
+
+
       </section>
     );
   }
