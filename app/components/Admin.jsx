@@ -1,6 +1,6 @@
 "use strict";
 import React, { Component } from "react";
-import { database } from "../../firebase";
+import Uploader from "./Uploader";
 
 let eventStyles = {
   showEvent: {
@@ -9,7 +9,7 @@ let eventStyles = {
   hideEvent: {
     visibility: "hidden"
   }
-}
+};
 
 export default class Admin extends Component {
   constructor(props) {
@@ -17,20 +17,9 @@ export default class Admin extends Component {
     this.state = {
       width: 0,
       height: 0,
-      eventTitle: "",
-      eventLocation: "",
-      eventDate: "",
-      eventAddress: "",
-      ticketLink: "",
-      event: "hideEvent"
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEventAddress = this.handleEventAddress.bind(this);
-    this.handleEventDate = this.handleEventDate.bind(this);
-    this.handleEventLocation = this.handleEventLocation.bind(this);
-    this.handleTicketLink = this.handleTicketLink.bind(this);
-    this.handleEventTitle = this.handleEventTitle.bind(this);
   }
 
   handleEventTitle(event) {
@@ -105,53 +94,17 @@ export default class Admin extends Component {
       height: this.state.height
     };
     return (
-      <section id="admin" style={styles}>
+      <section style={styles}>
+      <div id="admin">
         <form onSubmit={this.handleSubmit}>
           <h1>Add Event Information</h1>
-          Event Title{" "}
-          <input
-            value={this.state.eventTitle || ''}
-            type="text"
-            name="eventTitle"
-            onChange={this.handleEventTitle}
-          />
-          <br/>
-          Date{" "}
-          <input value={this.state.eventDate} type="text" name="eventDate" onChange={this.handleEventDate} />
-          <br/>
-          Event Location Name<input
-            value={this.state.eventLocation || ''}
-            type="text"
-            name-="eventLocation"
-            onChange={this.handleEventLocation}
-          />
-          <br/>
-          Address{" "}
-          <input
-            value={this.state.eventAddress || ''}
-            type="text"
-            name="eventAddress"
-            onChange={this.handleEventAddress}
-          />
-          <br/>
-          <div  id="ticket-link">
-          <h1>Add Ticket Link</h1>
-          Link{" "}
-          <input
-          value={this.state.ticketLink || ''}
-            type="text"
-            name="ticketLink"
-            onChange={this.handleTicketLink}
-          />
-          </div>
+          <h5>Paste HTML code from Brown Paper Tickets Widget</h5>
+          <textarea />
+          <br />
           <button>submit</button>
-
-
-        <h1>Add and Edit Photos</h1>
         </form>
-        {/* show all photos
-          allow upload of photos
-          admin can select which photos appear in rotation */}
+        <Uploader/>
+        </div>
       </section>
     );
   }

@@ -3,14 +3,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 
-let eventStyles = {
-  showEvent: {
-    display: "block"
-  },
-  hideEvent: {
-    display: "none"
-  }
-};
 
 export default class Events extends Component {
   constructor(props) {
@@ -45,32 +37,19 @@ export default class Events extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: true,
-      dots: true,
+      dots: true
     };
     return (
       <section id="events" style={styles}>
         <div id="event-headline">
           <h1 onMouseEnter={this.showEvent}>Where can I see Hardy Brooklyn?</h1>
         </div>
-
-
-
-
-            <div style={eventStyles[this.state.event]}
-          onMouseLeave={this.hideEvent} id="showEvent">
-              Solas Studio and Hardy Brooklyn Present
-              <br /> A Nude Live Art Soiree
-              <br /> January 9, 2018 at 6pm
-              <br /> Solas Studio
-              <br /> West 30th Street
-              <br /> New York, NY 10001
-              <br />
-              <a href="https://www.brownpapertickets.com/event/3213481">
-                Tickets
-              </a>
-            </div>
-
-
+        <div id="bpt_eventbody">
+          <form action="https://www.brownpapertickets.com/addtocart/3235059" >
+          <input type="hidden" name="event_id" value="3235059"/>
+          <table cellPadding="0" cellSpacing="0" border="0" width="100%" />
+          </form>
+        </div>
       </section>
     );
   }

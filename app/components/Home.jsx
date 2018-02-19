@@ -10,6 +10,8 @@ import About from "./About";
 import Carousel2 from "./Carousel2";
 import Contact from "./Contact";
 import Admin from "./Admin";
+import Media from "./Media";
+import Carousel3 from "./Carousel3";
 
 export default class Home extends Component {
   constructor(props) {
@@ -43,6 +45,8 @@ export default class Home extends Component {
         <Carousel1 width={this.state.width} />
         <About width={this.state.width} height={this.state.height} />
         <Carousel2 width={this.state.width} />
+        <Media width={this.state.width} height={this.state.height}/>
+        <Carousel3 width={this.state.width}/>
         <Contact width={this.state.width} height={this.state.height} />
       </div>
     );

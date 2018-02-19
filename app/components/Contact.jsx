@@ -14,28 +14,42 @@ export default class Contact extends Component {
       <section style={styles} id="contact">
         <h1>How can I contact Hardy Brooklyn?</h1>
         <form>
+          <div className="form-input-item">
           First name:
           <br />
           <input type="text" name="firstName" />
-          <br /> Last name:
+          </div>
+          <div className="form-input-item">
+          Last name:
           <br />
           <input type="text" name="lastName" />
-          <br /> Email:
+          </div>
+          <div className="form-input-item">
+          Email:
           <br />
           <input type="text" name="email" />
-          <br /> Phone number:
+          </div>
+          <div className="form-input-item">
+          Phone number:
           <br />
           <input type="text" name="phoneNumber" />
-          <br /> Statement/ Question/ Request:
+          </div>
+          <div className="form-input-item">
+          Statement/ Question/ Request:
           <br />
           <input id="sqr" type="text" name="query" />
-          <br /> When is the best time to call you back?
+          </div>
+          <div className="form-input-item">
+           When is the best time to call you back?
           <br />
           <input type="text" name="time" />
-          <br /> Add me to the Hardy Brooklyn mailing list!
+          </div>
+          <div className="form-input-item">
+          Add me to the Hardy Brooklyn mailing list!
           <input type="radio" name="mailingList" value="mailingList" />
           <br />
           <button type="submit">SUBMIT</button>
+          </div>
         </form>
       </section>
     );
