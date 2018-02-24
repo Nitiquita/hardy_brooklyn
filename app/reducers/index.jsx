@@ -1,30 +1,38 @@
 import { combineReducers } from 'redux'
-import { GET_IMAGES } from '../reducers/images'
+import { ADD_IMAGE, GET_IMAGES} from '../reducers/images'
 
-const intialState = {
+const initialState = {
+  width: 0,
+  height: 0,
   images: [],
   selectedImages: [],
-  backgroundImage: ''
+  backgroundImage: '',
+  image: "",
+  isUploading: false,
+  progress: 0,
+  imageURL: "",
 }
 
 
+const rootReducer = function (state = initialState, action) {
 
-// const rootReducer = function (state = initialState, action) {
+  const newState = Object.assign({}, state);
 
-//   const newState = Object.assign({}, state);
+  switch (action.type) {
 
-//   switch (action.type) {
+    case ADD_IMAGE:
+      newState.image = action.image;
+      break;
 
-//     case GET_IMAGES:
-//       newState.images = action.images
-//       break;
+    case GET_IMAGES:
+      newState.images = action.images;
+      break;
 
-//     default:
-//       return state;
+    default:
+      return state;
 
-//   }
+  }
 
-//   return newState;
-// };
-
+  return newState;
+};
 export default rootReducer;

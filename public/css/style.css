@@ -15,16 +15,16 @@ html, body, button {
 
 .parallax {
     /* The image used */
-    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("/img/kelly-sikkema-108975.jpg");
+    /* background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("/img/kelly-sikkema-108975.jpg"); */
 
     /* Set a specific height */
     /* height: 2000px;  */
 
     /* Create the parallax scrolling effect */
-    background-attachment: fixed;
+    /* background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 
 body{
@@ -232,4 +232,22 @@ button {
 
 #ticket-link {
     float: right;
+}
+
+.image {
+    height: 200px;
+    margin-left: 25px;
+    padding-top: 50px;
+}
+
+.radio-button {
+    padding-bottom: 100px;
+}
+
+/*------------------------------------------------*/
+/*CAROUSEL*/
+/*------------------------------------------------*/
+
+.carousel-image {
+    height: 200px;
 }

@@ -1,4 +1,5 @@
 import { storage } from '../../firebase'
+import { dispatch } from 'redux';
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -7,7 +8,7 @@ const GET_IMAGES = "GET_IMAGES";
 
 /* ------------   ACTION CREATORS     ------------------ */
 
-const addImage = image => ({ type: ADD_IMAGE})
+const addImage = image => ({ type: ADD_IMAGE, image})
 const getImages = images => ({ type: GET_IMAGES, images });
 
 /* ------------       REDUCER     ------------------ */
@@ -25,3 +26,10 @@ export default reducer
 
 /* ------------       DISPATCHERS     ------------------ */
 
+export const fetchImages = () => dispatch => {
+
+}
+
+export const addImages = () => dispatch => {
+
+}

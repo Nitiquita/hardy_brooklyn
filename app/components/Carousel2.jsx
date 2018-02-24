@@ -15,11 +15,11 @@ export default class Carousel2 extends Component {
     };
     return (
       <Slider {...settings}>
-        <img src={require("../../public1/img/zoltan-tasi-437454.jpg")} />
-        <img src={require("../../public1/img/zoltan-tasi-437454.jpg")} />
-        <img src={require("../../public1/img/zoltan-tasi-437454.jpg")} />
-        <img src={require("../../public1/img/zoltan-tasi-437454.jpg")} />
-        <img src={require("../../public1/img/zoltan-tasi-437454.jpg")} />
+        <img src={require("../../public/img/zoltan-tasi-437454.jpg")} />
+        <img src={require("../../public/img/zoltan-tasi-437454.jpg")} />
+        <img src={require("../../public/img/zoltan-tasi-437454.jpg")} />
+        <img src={require("../../public/img/zoltan-tasi-437454.jpg")} />
+        <img src={require("../../public/img/zoltan-tasi-437454.jpg")} />
       </Slider>
     );
   }

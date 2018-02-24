@@ -158,7 +158,7 @@ export default class Nav extends Component {
       <div>
         <img
           id="nav"
-          src={require("../../public1/icons/icons8-menu.svg")}
+          src={require("../../public/icons/icons8-menu.svg")}
           onMouseEnter={this.showNav}
         />
         <ul id="nav-items" style={navStyles[this.state.nav]}

@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 import ScrollableAnchor from "react-scrollable-anchor";
 import { Link, Route, Switch } from "react-router-dom";
+import { database } from "../../firebase";
+import store from "../store";
 
 import Nav from "./Nav";
 import Events from "./Events";
@@ -16,19 +18,27 @@ import Carousel3 from "./Carousel3";
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      width: 0,
-      height: 0
-    };
+    this.state = store.getState();
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
+    this.unsubscribe = store.subscribe(() => {
+      this.setState(store.getState());
+    });
     this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);
+    database
+      .ref("bgimage")
+      .once("value")
+      .then(snapshot => {
+        let image = snapshot.val();
+        this.setState({ backgroundImage: image });
+      });
   }
 
   componentWillUnmount() {
+    this.unsubscribe();
     window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
@@ -37,16 +47,31 @@ export default class Home extends Component {
   }
 
   render() {
-    console.log(this.props.history)
+    let backgroundImage = this.state.backgroundImage["imageURL"];
+    let parallaxStyles = {
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed"
+    };
     return (
-      <div>
-        <Nav/>
-        <Events width={this.state.width} height={this.state.height} />
+      <div style={parallaxStyles}>
+        <Nav />
+        <Events
+          width={this.state.width && this.state.width}
+          height={this.state.height && this.state.height}
+        />
         <Carousel1 width={this.state.width} />
-        <About width={this.state.width} height={this.state.height} />
+        <About
+          width={this.state.width && this.state.width}
+          height={this.state.height && this.state.height}
+        />
         <Carousel2 width={this.state.width} />
-        <Media width={this.state.width} height={this.state.height}/>
-        <Carousel3 width={this.state.width}/>
+        <Media
+          width={this.state.width && this.state.width}
+          height={this.state.height && this.state.height}
+        />
+        <Carousel3 width={this.state.width} />
         <Contact width={this.state.width} height={this.state.height} />
       </div>
     );
