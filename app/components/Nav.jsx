@@ -163,7 +163,7 @@ export default class Nav extends Component {
         />
         <ul id="nav-items" style={navStyles[this.state.nav]}
         onMouseLeave={this.hideNav}>
-          <li><Scrollchor to="#events">Events</Scrollchor></li>
+          <li>Events</li>
           <li><Link to="/#about">About</Link></li>
           <li><Link to="/#contact">Contact</Link></li>
           <li onClick={this.showLogin}>Login</li>
