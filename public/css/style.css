@@ -171,6 +171,7 @@ body{
     color: rgb(149, 39, 149);
     padding-top: 75px;
     padding-left: 50px;
+    margin-bottom: 0;
 }
 
 #contact form{
@@ -178,7 +179,7 @@ body{
     margin: auto;
     width: 900px;
     color: rgb(107, 22, 107);
-    padding-top: 25px;
+    padding-top: 15px;
     padding-left: 50px;
     background-color: rgb(194, 194, 194);
     padding-bottom: 40px;
@@ -192,11 +193,6 @@ input[type=text] {
 input[type=radio] {
     margin-left: 20px;
 }
-
-input[type=text] {
-    margin-top: 10px;
-}
-
 
 button {
     margin-top: 25px;

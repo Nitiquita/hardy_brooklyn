@@ -20,7 +20,6 @@ export default class Carousel1 extends Component {
     .ref("c1image")
     .once("value")
     .then(snapshot => {
-      console.log(snapshot.val())
       let images = snapshot.val();
       this.setState({ selectedImages: images})
     });
@@ -32,7 +31,6 @@ export default class Carousel1 extends Component {
 
 
   render() {
-    console.log(this.state)
     const settings = {
       autoplay: true,
       autoplaySpeed: 3000,

@@ -61,16 +61,12 @@ export default class Images extends Component {
               }
             });
         });
-
       });
-      this.setState({ images: photos})
+    this.setState({ images: photos });
   }
 
-  componentDidUpdate(){
-
-  }
   handleClick() {
-    this.forceUpdate()
+    this.forceUpdate();
   }
   componentWillUnmount() {
     this.unsubscribe();
@@ -78,56 +74,83 @@ export default class Images extends Component {
 
   handleChange(event) {
     let images = this.state.selectedImages;
-    images.push(event.target.value)
+    images.push(event.target.value);
     this.setState({ selectedImages: images });
   }
 
-  handleClickBGImage(){
-    let bgImage = this.state.selectedImages[0]
+  handleClickBGImage() {
+    let bgImage = this.state.selectedImages[0];
     database.ref("bgimage").set({
       imageURL: bgImage
-    })
+    });
   }
 
   handleClickC1() {
     this.state.selectedImages.map((image, idx) => {
       database.ref("c1images/" + idx).set({
         imageURL: image
-      })
-    })
+      });
+    });
   }
 
   handleClickC2() {
     this.state.selectedImages.map((image, idx) => {
       database.ref("c2images/" + idx).set({
         imageURL: image
-      })
-    })
+      });
+    });
   }
 
   handleClickC3() {
     this.state.selectedImages.map((image, idx) => {
       database.ref("c3images/" + idx).set({
         imageURL: image
-      })
-    })
+      });
+    });
   }
 
   render() {
     return (
       <div>
-      <button onClick={this.handleClick}>show all images</button>
-      <div>
-       {this.state.images && this.state.images.map((image, idx) => {
-         return <div  key={idx} ><input onChange={this.handleChange}className="radio-button" type="radio" value={image}/><img src={image} className="image"/></div>
-       })
-       }
-       <button onClick={this.handleClickBGImage}>use as background image</button>
-       <button onClick={this.handleClickC1}>add to carousel 1</button>
-       <button onClick={this.handleClickC2}>add to carousel 2</button>
-       <button onClick={this.handleClickC3}>add to carousel 3</button>
-       </div>
+        <button onClick={this.handleClick}>show all images</button>
+        <div>
+          {this.props.images &&
+            this.props.images.map((image, idx) => {
+              return (
+                <div key={idx}>
+                  <input
+                    onChange={this.handleChange}
+                    className="radio-button"
+                    type="radio"
+                    value={image}
+                  />
+                  <img src={image} className="image" />
+                </div>
+              );
+            })}
+            {
+            this.state.images && this.state.images.map((image, idx) => {
+              return (
+                <div key={idx}>
+                  <input
+                    onChange={this.handleChange}
+                    className="radio-button"
+                    type="radio"
+                    value={image}
+                  />
+                  <img src={image} className="image" />
+                </div>
+              );
+            })
+            }
+          <button onClick={this.handleClickBGImage}>
+            use as background image
+          </button>
+          <button onClick={this.handleClickC1}>add to carousel 1</button>
+          <button onClick={this.handleClickC2}>add to carousel 2</button>
+          <button onClick={this.handleClickC3}>add to carousel 3</button>
         </div>
-    )
+      </div>
+    );
   }
 }

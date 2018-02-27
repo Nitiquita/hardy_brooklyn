@@ -49,7 +49,7 @@ export default class Home extends Component {
   render() {
     let backgroundImage = this.state.backgroundImage["imageURL"];
     let parallaxStyles = {
-      backgroundImage: `url(${backgroundImage})`,
+      backgroundImage: `linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url(${backgroundImage})`,
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundAttachment: "fixed"

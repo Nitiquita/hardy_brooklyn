@@ -1,54 +1,54 @@
 "use strict";
-
 import React, { Component } from "react";
-import Slider from "react-slick";
-
+import { database } from "../../firebase"
 
 export default class Events extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      width: 0,
-      height: 0,
-      event: "hideEvent"
-    };
-    this.showEvent = this.showEvent.bind(this);
-    this.hideEvent = this.hideEvent.bind(this);
+    this.state =  {
+      HTML: "",
+      HTMLSplit: "",
+      JSX: ""
+    }
   }
 
-  showEvent() {
-    this.setState({
-      event: "showEvent"
-    });
-  }
+  componentDidMount() {
+    let promise = new Promise((resolve, reject) => {
+      let value
+      database
+      .ref("events/")
+      .once("value")
+      .then(function(snapshot) {
+        value = snapshot.val();
+        resolve(value)
+      })
 
-  hideEvent() {
-    this.setState({
-      event: "hideEvent"
-    });
+    })
+    promise.then(value => {
+      this.setState({
+        HTML: value.HTML
+      })
+    })
+
+    this.state.HTMLSplit = this.state.HTML.split(' ')
+    // for (let i = 0; i < this.state.HTML.length; i++) {
+
+    // }
+
   }
 
   render() {
+    let HTML = this.state.HTML
     const styles = {
       height: this.props.height
     };
-    const settings = {
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      dots: true
-    };
+    console.log(this.state.HTML)
     return (
       <section id="events" style={styles}>
         <div id="event-headline">
           <h1 onMouseEnter={this.showEvent}>Where can I see Hardy Brooklyn?</h1>
         </div>
-        <div id="bpt_eventbody">
-          <form action="https://www.brownpapertickets.com/addtocart/3235059" >
-          <input type="hidden" name="event_id" value="3235059"/>
-          <table cellPadding="0" cellSpacing="0" border="0" width="100%" />
-          </form>
+        <div>
         </div>
       </section>
     );

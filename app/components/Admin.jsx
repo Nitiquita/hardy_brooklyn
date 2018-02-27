@@ -1,6 +1,8 @@
 "use strict";
 import React, { Component } from "react";
 import Uploader from "./Uploader";
+import { Link, Redirect} from "react-router-dom";
+import { database } from "../../firebase"
 
 let eventStyles = {
   showEvent: {
@@ -17,62 +19,26 @@ export default class Admin extends Component {
     this.state = {
       width: 0,
       height: 0,
+      HTML: ''
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleEventTitle(event) {
+  handleChange(event) {
     this.setState({
-      eventTitle: event.target.value
-    });
-  }
-
-  handleEventLocation(event) {
-    this.setState({
-      eventLocation: event.target.value
-    });
-  }
-
-  handleEventDate(event) {
-    this.setState({
-      eventDate: event.target.value
-    });
-  }
-
-  handleEventAddress(event) {
-    this.setState({
-      eventAddress: event.target.value
-    });
-  }
-
-  handleTicketLink(event) {
-    this.setState({
-      ticketLink: event.target.value
-    });
+      HTML: event.target.value
+    })
   }
 
   handleSubmit(event) {
+    let HTML = this.refs.HTML
     event.preventDefault();
-    let eventTitle = this.state.eventTitle;
-    let eventDate = this.state.eventDate;
-    let eventLocation = this.state.eventLocation;
-    let eventAddress = this.state.eventAddress;
-    let ticketLink = this.state.ticketLink;
     database.ref("events/").set({
-      eventTitle: eventTitle,
-      eventDate: eventDate,
-      eventLocation: eventLocation,
-      eventAddress: eventAddress,
-      ticketLink: ticketLink
+      HTML: this.state.HTML
     });
-    this.setState({
-      eventTitle: "",
-      eventDate: "",
-      eventLocation: "",
-      eventAddress: "",
-      ticketLink: ""
-    });
+    HTML.value = "";
   }
 
   componentDidMount() {
@@ -96,10 +62,11 @@ export default class Admin extends Component {
     return (
       <section style={styles}>
       <div id="admin">
+      <Link to="/"><button>Home</button></Link>
         <form onSubmit={this.handleSubmit}>
           <h1>Add Event Information</h1>
           <h5>Paste HTML code from Brown Paper Tickets Widget</h5>
-          <textarea />
+          <textarea ref="HTML" onChange={this.handleChange} />
           <br />
           <button>submit</button>
         </form>
