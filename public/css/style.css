@@ -152,6 +152,32 @@ body{
     height: 300px;
     width: 300px;
 }
+
+/*------------------------------------------------*/
+/*MEDIA*/
+/*------------------------------------------------*/
+
+#media {
+    padding: 100px;
+    color: rgb(107, 22, 107);
+    font-weight: bolder;
+    text-align: center;
+}
+
+#media a {
+    text-decoration:  none;
+}
+
+.media-box {
+    background-color: white;
+    padding: 15px;
+    margin: 10px;
+}
+
+.media-box h4 {
+    margin: 15px;
+}
+
 /*------------------------------------------------*/
 /*CONTACT*/
 /*------------------------------------------------*/
@@ -205,6 +231,10 @@ button {
 /*------------------------------------------------*/
 /*ADMIN PAGE*/
 /*------------------------------------------------*/
+#go-home {
+    float: right;
+    margin-right: 15px;
+}
 
 #admin {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -212,8 +242,33 @@ button {
     background-color: rgb(212, 150, 231);
 }
 
+#admin button {
+    font-size: 16px;
+}
+
+#admin h4 {
+    margin-top: 25px;
+}
+
 #admin form {
-    padding: 200px;
+    padding: 100px 100px;
+    padding-bottom: 0;
+}
+
+#images {
+    padding: 100px;
+}
+
+.carousel-button {
+   margin-right: 15px;
+}
+
+#add-media {
+    padding-bottom: 200px;
+}
+
+#add-media input {
+    margin-left: 15px;
 }
 
 /* textarea {
@@ -222,6 +277,10 @@ button {
 
 #ticket-link {
     float: right;
+}
+
+.image-box {
+    display: inline;
 }
 
 .image {

@@ -111,13 +111,13 @@ export default class Images extends Component {
 
   render() {
     return (
-      <div>
+      <div id="images">
         <button onClick={this.handleClick}>show all images</button>
         <div>
           {this.props.images &&
             this.props.images.map((image, idx) => {
               return (
-                <div key={idx}>
+                <div key={idx} className="image-box">
                   <input
                     onChange={this.handleChange}
                     className="radio-button"
@@ -131,7 +131,7 @@ export default class Images extends Component {
             {
             this.state.images && this.state.images.map((image, idx) => {
               return (
-                <div key={idx}>
+                <div key={idx} className="image-box">
                   <input
                     onChange={this.handleChange}
                     className="radio-button"
@@ -143,12 +143,14 @@ export default class Images extends Component {
               );
             })
             }
+            <br/>
           <button onClick={this.handleClickBGImage}>
             use as background image
           </button>
-          <button onClick={this.handleClickC1}>add to carousel 1</button>
-          <button onClick={this.handleClickC2}>add to carousel 2</button>
-          <button onClick={this.handleClickC3}>add to carousel 3</button>
+          <h4>Select at least 5 images to add to each carousel</h4>
+          <button className="carousel-button" onClick={this.handleClickC1}>add to carousel 1</button>
+          <button className="carousel-button" onClick={this.handleClickC2}>add to carousel 2</button>
+          <button className="carousel-button" onClick={this.handleClickC3}>add to carousel 3</button>
         </div>
       </div>
     );

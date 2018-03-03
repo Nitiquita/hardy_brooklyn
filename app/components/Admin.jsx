@@ -1,8 +1,9 @@
 "use strict";
 import React, { Component } from "react";
 import Uploader from "./Uploader";
-import { Link, Redirect} from "react-router-dom";
-import { database } from "../../firebase"
+import AddMedia from "./AddMedia";
+import { Link, Redirect } from "react-router-dom";
+import { database } from "../../firebase";
 
 let eventStyles = {
   showEvent: {
@@ -19,21 +20,21 @@ export default class Admin extends Component {
     this.state = {
       width: 0,
       height: 0,
-      HTML: ''
+      HTML: ""
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       HTML: event.target.value
-    })
+    });
   }
 
   handleSubmit(event) {
-    let HTML = this.refs.HTML
+    let HTML = this.refs.HTML;
     event.preventDefault();
     database.ref("events/").set({
       HTML: this.state.HTML
@@ -61,16 +62,19 @@ export default class Admin extends Component {
     };
     return (
       <section style={styles}>
-      <div id="admin">
-      <Link to="/"><button>Home</button></Link>
-        <form onSubmit={this.handleSubmit}>
-          <h1>Add Event Information</h1>
-          <h5>Paste HTML code from Brown Paper Tickets Widget</h5>
-          <textarea ref="HTML" onChange={this.handleChange} />
-          <br />
-          <button>submit</button>
-        </form>
-        <Uploader/>
+        <div id="admin">
+          <Link to="/">
+            <button id="go-home">HOME</button>
+          </Link>
+          <form onSubmit={this.handleSubmit}>
+            <h1>Add Event Information</h1>
+            <h5>Paste HTML code from Brown Paper Tickets Widget</h5>
+            <textarea ref="HTML" onChange={this.handleChange} />
+            <br />
+            <button>submit</button>
+          </form>
+          <Uploader />
+          <AddMedia />
         </div>
       </section>
     );

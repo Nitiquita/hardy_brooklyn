@@ -100,7 +100,7 @@ export default class Uploader extends Component {
     return (
       <div>
         <form>
-          <label>Add image</label>
+          <h1>Add image</h1>
           {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
           {this.state.avatarURL && <img src={this.state.avatarURL} />}
           <FileUploader
