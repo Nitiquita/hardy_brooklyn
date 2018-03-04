@@ -17,7 +17,7 @@ export default class Carousel1 extends Component {
       this.setState(store.getState());
     });
     database
-    .ref("c1image")
+    .ref("c1images")
     .once("value")
     .then(snapshot => {
       let images = snapshot.val();

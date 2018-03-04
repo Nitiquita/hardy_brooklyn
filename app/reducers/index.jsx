@@ -11,6 +11,7 @@ const initialState = {
   isUploading: false,
   progress: 0,
   imageURL: "",
+  selectedRadio: null,
 }
 
 

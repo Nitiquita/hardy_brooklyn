@@ -8,7 +8,6 @@ export default class Events extends Component {
     this.state = {
       HTML: ``,
     };
-    this.renderHTML = this.renderHTML.bind(this);
   }
 
   componentDidMount() {
@@ -28,10 +27,6 @@ export default class Events extends Component {
         HTML: stringHTML
       });
     });
-  }
-
-  renderHTML(html) {
-    return html;
   }
 
   render() {

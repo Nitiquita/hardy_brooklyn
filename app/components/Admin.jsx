@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import Uploader from "./Uploader";
 import AddMedia from "./AddMedia";
+import AddSocialMedia from "./AddSocialMedia"
 import { Link, Redirect } from "react-router-dom";
 import { database } from "../../firebase";
 
@@ -69,12 +70,14 @@ export default class Admin extends Component {
           <form onSubmit={this.handleSubmit}>
             <h1>Add Event Information</h1>
             <h5>Paste HTML code from Brown Paper Tickets Widget</h5>
+            <h6>For more than one event paste all HTML together</h6>
             <textarea ref="HTML" onChange={this.handleChange} />
             <br />
             <button>submit</button>
           </form>
           <Uploader />
           <AddMedia />
+          <AddSocialMedia/>
         </div>
       </section>
     );

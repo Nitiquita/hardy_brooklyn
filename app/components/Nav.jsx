@@ -169,7 +169,7 @@ export default class Nav extends Component {
           <li onClick={this.showLogin}>Login</li>
         </ul>
         <div id="logged-in" style={loginStyles[this.state.loggedIn]}>
-        <h1>You are logged in!</h1>
+        <h4>You are logged in!</h4>
         <button onClick={this.logOut}>logout</button>
         <button onClick={this.hideLoggedIn}>hide</button>
         <br/>

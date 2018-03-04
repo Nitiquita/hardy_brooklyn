@@ -49,12 +49,38 @@ body{
 }
 
 #login {
-    padding-top: 20px;
+    position: fixed;
+    height: auto;
+    width: auto;
+    top: 80px;
+    left: 20px;;
+    display: block;
+    z-index: 10;
+    outline: 0;
+    background: #fff;
+    max-width: 100%;
+    border: 1px solid #cbcbcb;
+    max-height: 100%;
+    overflow-y: auto;
+    /* padding-top: 20px; */
     text-align: center;
 }
 
 #logged-in {
-    padding-top: 20px;
+    position: fixed;
+    height: auto;
+    width: auto;
+    top: 80px;
+    left: 20px;
+    display: block;
+    z-index: 10;
+    outline: 0;
+    background: #fff;
+    max-width: 100%;
+    border: 1px solid #cbcbcb;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 20px;
     text-align: center;
 }
 
@@ -78,17 +104,6 @@ body{
     width: 650px;
     text-align: center;
 }
-
-/* #showEvent {
-    display: inline-block;
-    margin: 100px auto;
-    background-color: white;
-    font-size: 75%;
-    width: 650px;
-    padding: 25px;
-    text-align: center;
-    border: solid goldenrod 10px;
-} */
 
 #events div {
     margin: auto;
@@ -172,6 +187,7 @@ body{
     background-color: white;
     padding: 15px;
     margin: 10px;
+    border: solid 5px black;
 }
 
 .media-box h4 {
@@ -255,6 +271,10 @@ button {
     padding-bottom: 0;
 }
 
+textarea {
+    margin-top: 20px;
+}
+
 #images {
     padding: 100px;
 }
@@ -263,11 +283,12 @@ button {
    margin-right: 15px;
 }
 
-#add-media {
+#add-social-media {
     padding-bottom: 200px;
 }
 
-#add-media input {
+#add-media input,
+#add-social-media input {
     margin-left: 15px;
 }
 
@@ -298,5 +319,5 @@ button {
 /*------------------------------------------------*/
 
 .carousel-image {
-    height: 200px;
+    height: 250px;
 }

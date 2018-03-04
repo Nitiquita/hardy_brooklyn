@@ -12,6 +12,7 @@ export default class Images extends Component {
     this.handleClickC1 = this.handleClickC1.bind(this);
     this.handleClickC2 = this.handleClickC2.bind(this);
     this.handleClickC3 = this.handleClickC3.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentDidMount() {
@@ -19,53 +20,62 @@ export default class Images extends Component {
       this.setState(store.getState());
     });
     let photos = [];
-    database
-      .ref("images/")
-      .once("value")
-      .then(function(snapshot) {
-        let values = snapshot.val();
-        let images = [];
+    let promise = new Promise((resolve, reject) => {
+      database
+        .ref("images/")
+        .once("value")
+        .then(function(snapshot) {
+          let values = snapshot.val();
+          let images = [];
+          for (var key in values) {
+            images.push(values[key]["filename"]);
+          }
+          images.map(image => {
+            // Create a reference to the file we want to download
+            const storageRef = storage.ref();
+            // Get the download URL
+            storageRef
+              .child("images/" + image)
+              .getDownloadURL()
+              .then(function(url) {
+                // Insert url into an <img> tag to "download"
+                photos.push(url);
+              });
+          });
+        })
+        // .catch(function(error) {
+        //   // A full list of error codes is available at
+        //   // https://firebase.google.com/docs/storage/web/handle-errors
+        //   switch (error.code) {
+        //     case "storage/object_not_found":
+        //       // File doesn't exist
+        //       break;
 
-        for (var key in values) {
-          images.push(values[key]["filename"]);
-        }
-        images.map(image => {
-          // Create a reference to the file we want to download
-          const storageRef = storage.ref();
-          // Get the download URL
-          storageRef
-            .child("images/" + image)
-            .getDownloadURL()
-            .then(function(url) {
-              // Insert url into an <img> tag to "download"
-              photos.push(url);
-            })
-            .catch(function(error) {
-              // A full list of error codes is available at
-              // https://firebase.google.com/docs/storage/web/handle-errors
-              switch (error.code) {
-                case "storage/object_not_found":
-                  // File doesn't exist
-                  break;
+        //     case "storage/unauthorized":
+        //       // User doesn't have permission to access the object
+        //       break;
 
-                case "storage/unauthorized":
-                  // User doesn't have permission to access the object
-                  break;
+        //     case "storage/canceled":
+        //       // User canceled the upload
+        //       break;
+        //     case "storage/unknown":
+        //       // Unknown error occurred, inspect the server response
+        //       break;
+        //   }
+        // });
+        resolve(photos)
+    });
+    promise.then(photos => {
+      this.setState({ images: photos });
+    });
 
-                case "storage/canceled":
-                  // User canceled the upload
-                  break;
-                case "storage/unknown":
-                  // Unknown error occurred, inspect the server response
-                  break;
-              }
-            });
-        });
-      });
-    this.setState({ images: photos });
   }
 
   handleClick() {
+    let imagesArray = this.state.images.map((image, idx) => {
+      return { image: image, id: idx}
+    })
+    this.setState({ images: imagesArray})
     this.forceUpdate();
   }
   componentWillUnmount() {
@@ -76,6 +86,7 @@ export default class Images extends Component {
     let images = this.state.selectedImages;
     images.push(event.target.value);
     this.setState({ selectedImages: images });
+
   }
 
   handleClickBGImage() {
@@ -83,6 +94,7 @@ export default class Images extends Component {
     database.ref("bgimage").set({
       imageURL: bgImage
     });
+    this.setState({selectedRadio: null});
   }
 
   handleClickC1() {
@@ -91,6 +103,7 @@ export default class Images extends Component {
         imageURL: image
       });
     });
+    this.setState({selectedRadio: null});
   }
 
   handleClickC2() {
@@ -99,6 +112,7 @@ export default class Images extends Component {
         imageURL: image
       });
     });
+    this.setState({selectedRadio: null});
   }
 
   handleClickC3() {
@@ -107,6 +121,12 @@ export default class Images extends Component {
         imageURL: image
       });
     });
+    this.setState({selectedRadio: null});
+  }
+
+  handleSelect(id) {
+    console.log(id)
+    this.setState({selectedRadio: id});
   }
 
   render() {
@@ -122,35 +142,44 @@ export default class Images extends Component {
                     onChange={this.handleChange}
                     className="radio-button"
                     type="radio"
-                    value={image}
+                    value={image.image}
+                    checked={this.state.selectedRadio === image.id}
                   />
-                  <img src={image} className="image" />
+                  <img src={image.image} className="image" />
                 </div>
               );
             })}
             {
             this.state.images && this.state.images.map((image, idx) => {
               return (
-                <div key={idx} className="image-box">
+                <div key={idx}  className="image-box">
                   <input
                     onChange={this.handleChange}
+                    onClick={this.handleSelect.bind(this, image.id)}
                     className="radio-button"
                     type="radio"
-                    value={image}
+                    value={image.image}
+                    checked={this.state.selectedRadio === image.id}
                   />
-                  <img src={image} className="image" />
+                  <img src={image.image} className="image" />
                 </div>
               );
             })
             }
-            <br/>
+          <br />
           <button onClick={this.handleClickBGImage}>
             use as background image
           </button>
           <h4>Select at least 5 images to add to each carousel</h4>
-          <button className="carousel-button" onClick={this.handleClickC1}>add to carousel 1</button>
-          <button className="carousel-button" onClick={this.handleClickC2}>add to carousel 2</button>
-          <button className="carousel-button" onClick={this.handleClickC3}>add to carousel 3</button>
+          <button className="carousel-button" onClick={this.handleClickC1}>
+            add to carousel 1
+          </button>
+          <button className="carousel-button" onClick={this.handleClickC2}>
+            add to carousel 2
+          </button>
+          <button className="carousel-button" onClick={this.handleClickC3}>
+            add to carousel 3
+          </button>
         </div>
       </div>
     );
