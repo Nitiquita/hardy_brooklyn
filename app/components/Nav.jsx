@@ -56,6 +56,9 @@ export default class Nav extends Component {
     }).catch(function(error) {
       console.log(error)
     });
+    this.setState({
+      loggedIn: "hideLoggedIn"
+    })
   }
 
   showNav() {
@@ -81,7 +84,8 @@ export default class Nav extends Component {
         }
         resolve(isUser)
       })
-    }).then(user => {
+    })
+    userPromise.then(user => {
       if (user) {
         this.setState({
           loggedIn: true
@@ -151,6 +155,8 @@ export default class Nav extends Component {
         })
       }
     })
+    this.refs.email.value = "";
+    this.refs.password.value="";
   }
 
   render() {
@@ -169,24 +175,31 @@ export default class Nav extends Component {
           <li onClick={this.showLogin}>Login</li>
         </ul>
         <div id="logged-in" style={loginStyles[this.state.loggedIn]}>
+        <div className="x-out" onClick={this.hideLoggedIn}>
+        x
+          </div>
+          <div id="logged-in-box">
         <h4>You are logged in!</h4>
         <button onClick={this.logOut}>logout</button>
-        <button onClick={this.hideLoggedIn}>hide</button>
-        <br/>
-        <Link to="/admin">Go to admin page</Link>
+        <Link id="link-admin" to="/admin"><button>admin page</button></Link>
         </div>
-        <form id="login" style={loginStyles[this.state.login]} onSubmit={this.handleSubmit}>
+        </div>
+        <div id="login" style={loginStyles[this.state.login]} >
+        <div className="x-out" onClick={this.hideLogin}>
+        x
+          </div>
+        <form onSubmit={this.handleSubmit}>
           ADMIN USE ONLY
           <br/>
           Email:
-          <input type="email" name="email" onChange={this.handleChange1}/>
+          <input ref="email" type="email" name="email" onChange={this.handleChange1}/>
           <br/>
           Password:
-          <input type="password" name="password" onChange={this.handleChange2}/>
+          <input ref="password" type="password" name="password" onChange={this.handleChange2}/>
           <br/>
           <button>submit</button>
-          <button onClick={this.hideLogin}>hide</button>
         </form>
+        </div>
       </div>
     );
   }
