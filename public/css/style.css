@@ -17,6 +17,9 @@ body{
     height:100%
    }
 
+section {
+    padding-bottom: 200px;
+}
 /*------------------------------------------------*/
 /*NAV*/
 /*------------------------------------------------*/
@@ -171,49 +174,43 @@ body{
     display: inline-block;
 }
 
-/* #about p:first-of-type {
-    margin-top: 25px;
-}
-
-#about p {
-    margin-top: 25px;
-} */
-
 .circle{
+    margin-top: 100px;
+    line-height: 28px;;
     display: inline-block;
     font-size: 60%;
     background-color: white;
     text-align: center;
     border-radius: 50%;;
-    margin-right: 50px;
+    margin-right: 15px;
     border: solid 2px goldenrod
 }
 
 #circle-1 {
     padding: 60px;
     margin: 0;
-    height: 430px;
-    width: 430px;
+    height: 440px;
+    width: 440px;
 }
 
 #circle-2 {
     padding: 60px;
-    height: 290px;
-    width: 290px;
+    height: 300px;
+    width: 300px;
     /* float: right; */
 }
 
 #circle-3 {
     padding: 50px;
-    height: 240px;
-    width: 240px;
+    height: 260px;
+    width: 260px;
     /* float: right; */
 }
 
 #circle-4 {
-    padding: 50px;
-    height: 240px;
-    width: 240px;
+    padding: 60px;
+    height: 260px;
+    width: 260px;
 }
 
 /*------------------------------------------------*/
@@ -372,6 +369,6 @@ textarea {
 /*CAROUSEL*/
 /*------------------------------------------------*/
 
-.carousel-image {
+/* .carousel-image {
     height: 250px;
-}
+} */

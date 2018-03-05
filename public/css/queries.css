@@ -1,21 +1,339 @@
-/*1200px to 1400px*/
-@media only screen and (max-width: 1400px) {
+/* bubble breakpoint  */
+@media only screen and (max-width: 1906px) {
+  .circle {
+    margin-right: 10px;
+  }
+}
+@media only screen and (max-width: 1827px) {
+  #circle-1 {
+    padding: 60px;
+    height: 425px;
+    width: 425px;
+  }
 
+  #circle-2 {
+    padding: 60px;
+    height: 285px;
+    width: 285px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 50px;
+    height: 245px;
+    width: 245px;
+    /* float: right; */
+  }
+
+  #circle-4 {
+    padding: 60px;
+    height: 240px;
+    width: 240px;
+  }
+}
+@media only screen and (max-width: 1766px) {
+  #circle-1 {
+    padding: 55px;
+    height: 420px;
+    width: 420px;
+  }
+
+  #circle-2 {
+    padding: 55px;
+    height: 280px;
+    width: 280px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 45px;
+    height: 240px;
+    width: 240px;
+    /* float: right; */
+  }
+
+  #circle-4 {
+    padding: 55px;
+    height: 235px;
+    width: 235px;
+  }
+}
+@media only screen and (max-width: 1702px) {
+  #circle-1 {
+    padding: 50px;
+    height: 415px;
+    width: 415px;
+  }
+
+  #circle-2 {
+    padding: 50px;
+    height: 275px;
+    width: 275px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 40px;
+    height: 235px;
+    width: 235px;
+    /* float: right; */
+  }
+
+  #circle-4 {
+    padding: 50px;
+    height: 230px;
+    width: 230px;
+  }
+}
+@media only screen and (max-width: 1641px) {
+  #circle-1 {
+    padding: 45px;
+    height: 415px;
+    width: 415px;
+  }
+
+  #circle-2 {
+    padding: 45px;
+    height: 270px;
+    width: 270px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 40px;
+    height: 225px;
+    width: 230px;
+    /* float: right; */
+  }
+
+  #circle-4 {
+    padding: 45px;
+    height: 225px;
+    width: 230px;
+  }
+}
+@media only screen and (max-width: 1611px) {
+  #circle-1 {
+    padding: 35px;
+    height: 410px;
+    width: 410px;
+  }
+
+  #circle-2 {
+    padding: 30px;
+    height: 270px;
+    width: 270px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 40px;
+    height: 225px;
+    width: 225px;
+    /* float: right; */
+  }
+
+  #circle-4 {
+    padding: 45px;
+    height: 225px;
+    width: 225px;
+  }
+}
+
+
+/*1200px to 1440px*/
+@media only screen and (max-width: 1440px) {
+  .circle {
+    line-height: 150%;
+    font-size: 50%;
+    margin-right: 2px;
+  }
+
+  #circle-1 {
+    padding: 40px;
+    height: 300px;
+    width: 300px;
+  }
+
+  #circle-2 {
+    padding: 40px;
+    height: 220px;
+    width: 220px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 40px;
+    height: 180px;
+    width: 180px;
+    /* float: right; */
+  }
+
+  #circle-4 {
+    padding: 40px;
+    height: 180px;
+    width: 180px;
+  }
 }
 
 
 /* Big tablet to 1200px */
 @media only screen and (max-width: 1200px) {
+  .circle {
+    font-size: 50%;
+    margin-right: 2px;
+    line-height: 150%;
+  }
+
+  #circle-1 {
+    padding: 30px;
+    height: 260px;
+    width: 260px;
+  }
+
+  #circle-2 {
+    padding: 20px;
+    height: 180px;
+    width: 180px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 20px;
+    height: 160px;
+    width: 160px;
+    /* float: right; */
+  }
+
+  #circle-4 {
+    padding: 20px;
+    height: 160px;
+    width: 160px;
+  }
 }
 
-/* Small tablet to big tablet: from 768px to 1023px */
-@media only screen and (max-width: 1023px) {
+/* Small tablet to big tablet: from 768px to 1024px */
+@media only screen and (max-width: 1024px) {
+  .circle {
+    font-size: 58%;
+    margin-right: 2px;
+    line-height: 150%;
+  }
+
+  #circle-1 {
+    padding: 30px;
+    height: 260px;
+    width: 260px;
+  }
+
+  #circle-2 {
+    padding: 20px;
+    height: 180px;
+    width: 180px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 20px;
+    height: 160px;
+    width: 160px;
+    /* float: right; */
+  }
+
+  #circle-4 {
+    padding: 20px;
+    height: 160px;
+    width: 160px;
+  }
+
+  /* .carousel-image {
+    height: 180px; */
+}
 }
 
-/* Small phones to small tablets: from 481px to 767px */
-@media only screen and (max-width: 767px) {
+/* Small phones to small tablets: from 481px to 768px */
+@media only screen and (max-width: 768px) {
+  .circle {
+    font-size: 78%;
+    margin-right: 80px;;
+    line-height: 150%;
+    margin-top: 40px;
+  }
+
+  #circle-1 {
+    padding: 30px;
+    height: 260px;
+    width: 260px;
+  }
+
+  #circle-2 {
+    padding: 20px;
+    height: 180px;
+    width: 180px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 20px;
+    height: 160px;
+    width: 160px;
+
+  }
+
+  #circle-4 {
+    padding: 20px;
+    height: 160px;
+    width: 160px;
+
+  }
+
+
 }
 
-/* Small phones: from 0 to 480px */
-@media only screen and (max-width: 480px) {
+/* Small phones: from 0 to 425px */
+@media only screen and (max-width: 425px) {
+  #auto .circle {
+    margin: 40px;
+  }
+
+  .circle{
+    font-size: 160%;
+    line-height: 150%;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: auto;
+    border:  none;
+}
+
+  #circle-1 {
+    padding: 40px;
+    height: 300px;
+    width: 300px;
+  }
+
+  #circle-2 {
+    padding: 40px;
+    height: 300px;
+    width: 300px;
+    /* float: right; */
+  }
+
+  #circle-3 {
+    padding: 40px;
+    height: 300px;
+    width: 300px;
+
+  }
+
+  #circle-4 {
+    padding: 40px;
+    height: 300px;
+    width: 300px;
+  }
+
+  #about {
+    margin: auto;
+    margin-bottom: 800px;
+  }
 }
