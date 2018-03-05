@@ -52,7 +52,8 @@ export default class Home extends Component {
       backgroundImage: `linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url(${backgroundImage})`,
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed"
+      backgroundAttachment: "fixed",
+      backgroundSize: "cover"
     };
     return (
       <div style={parallaxStyles}>
