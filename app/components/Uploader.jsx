@@ -36,64 +36,57 @@ export default class Uploader extends Component {
   }
   handleUploadSuccess(filename) {
     this.setState({ image: filename, progress: 100, isUploading: false });
-    let images = this.state.images;
-    images.push(filename);
-    this.setState({ images: images });
     storage
       .ref("images")
       .child(filename)
       .getDownloadURL()
       .then(url => {
         this.setState({ imageURL: url });
-        database.ref("images/" + filename.slice(0, -4)).set({
+        let sliceAt;
+        if (
+          filename.slice(0, -4) === "peg" ||
+          filename.slice(0, -4) === "PEG"
+        ) {
+          sliceAt = -5;
+        } else {
+          sliceAt = -4;
+        }
+        database.ref("images/" + filename.slice(0, sliceAt)).set({
           filename: filename
         });
       });
     let photos = [];
-    database
-      .ref("images/")
-      .once("value")
-      .then(function(snapshot) {
-        let values = snapshot.val();
-        let images = [];
+    let promise = new Promise((resolve, reject) => {
+      database
+        .ref("images/")
+        .once("value")
+        .then(function(snapshot) {
+          let values = snapshot.val();
+          let images = [];
+          for (var key in values) {
+            images.push(values[key]["filename"]);
+          }
+          images.map(image => {
+            // Create a reference to the file we want to download
+            const storageRef = storage.ref();
+            // Get the download URL
+            storageRef
+              .child("images/" + image)
+              .getDownloadURL()
+              .then(function(url) {
+                // Insert url into an <img> tag to "download"
 
-        for (var key in values) {
-          images.push(values[key]["filename"]);
-        }
-        images.map(image => {
-          // Create a reference to the file we want to download
-          const storageRef = storage.ref();
-          // Get the download URL
-          storageRef
-            .child("images/" + image)
-            .getDownloadURL()
-            .then(function(url) {
-              // Insert url into an <img> tag to "download"
-              photos.push(url);
-            })
-            .catch(function(error) {
-              // A full list of error codes is available at
-              // https://firebase.google.com/docs/storage/web/handle-errors
-              switch (error.code) {
-                case "storage/object_not_found":
-                  // File doesn't exist
-                  break;
-
-                case "storage/unauthorized":
-                  // User doesn't have permission to access the object
-                  break;
-
-                case "storage/canceled":
-                  // User canceled the upload
-                  break;
-                case "storage/unknown":
-                  // Unknown error occurred, inspect the server response
-                  break;
-              }
-            });
+                photos.push(url);
+              });
+          });
         });
+      resolve(photos);
+    });
+    promise.then(photos => {
+      this.setState({
+        images: photos
       });
-    this.setState({ images: photos });
+    });
   }
 
   render() {

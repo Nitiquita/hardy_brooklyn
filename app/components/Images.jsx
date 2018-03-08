@@ -72,7 +72,10 @@ export default class Images extends Component {
   }
 
   handleClick() {
-    let imagesArray = this.state.images.map((image, idx) => {
+    let imagesArray
+    this.props.images ? imagesArray = this.props.images.map((image, idx) => {
+      return { image: image, id: idx}
+    }) : imagesArray = this.state.images.map((image, idx) => {
       return { image: image, id: idx}
     })
     this.setState({ images: imagesArray})
@@ -130,29 +133,16 @@ export default class Images extends Component {
   }
 
   render() {
+    console.log(this.state.images)
     return (
       <div id="images">
         <button onClick={this.handleClick}>show all images</button>
         <div>
-          {this.props.images &&
+          {/* {this.props.images &&
             this.props.images.map((image, idx) => {
               return (
                 <div key={idx} className="image-box">
-                  <input
-                    onChange={this.handleChange}
-                    className="radio-button"
-                    type="radio"
-                    value={image.image}
-                    checked={this.state.selectedRadio === image.id}
-                  />
                   <img src={image.image} className="image" />
-                </div>
-              );
-            })}
-            {
-            this.state.images && this.state.images.map((image, idx) => {
-              return (
-                <div key={idx}  className="image-box">
                   <input
                     onChange={this.handleChange}
                     onClick={this.handleSelect.bind(this, image.id)}
@@ -161,7 +151,22 @@ export default class Images extends Component {
                     value={image.image}
                     checked={this.state.selectedRadio === image.id}
                   />
+                </div>
+              );
+            })} */}
+            {
+            this.state.images && this.state.images.map((image, idx) => {
+              return (
+                <div key={idx}  className="image-box">
                   <img src={image.image} className="image" />
+                  <input
+                    onChange={this.handleChange}
+                    onClick={this.handleSelect.bind(this, image.id)}
+                    className="radio-button"
+                    type="radio"
+                    value={image.image}
+                    checked={this.state.selectedRadio === image.id}
+                  />
                 </div>
               );
             })
