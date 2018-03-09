@@ -4,7 +4,7 @@ import store from "../store";
 
 let imagesStyles = {
   showImages: {
-    display: "inline-block"
+    display: "inline"
   },
   hideImages: {
     display: "none"
@@ -18,7 +18,8 @@ export default class Images extends Component {
       images: [],
       showImages: "hideImages",
       selectedRadio: null,
-      selectedImages: []
+      selectedImages: [],
+      highlightSelected: null
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -67,8 +68,7 @@ export default class Images extends Component {
 
   handleClick() {
     let imagesArray;
-    this.props.images ? console.log("props") : console.log("state");
-    this.props.images
+    this.props.images.length
       ? (imagesArray = this.props.images.map((image, idx) => {
           return { image: image, id: idx };
         }))
@@ -77,9 +77,8 @@ export default class Images extends Component {
         }));
     this.setState({ images: imagesArray });
     this.forceUpdate();
-    this.setState({ showImages: "showImages" })
+    this.setState({ showImages: "showImages" });
   }
-
 
   componentWillUnmount() {
     this.unsubscribe();
@@ -127,7 +126,6 @@ export default class Images extends Component {
   }
 
   handleSelect(id) {
-    console.log(id);
     this.setState({ selectedRadio: id });
   }
 
@@ -135,24 +133,30 @@ export default class Images extends Component {
     return (
       <div id="images">
         <button onClick={this.handleClick}>show all images</button>
-        <div style={imagesStyles[this.state.showImages]}>
-          {this.state.images &&
-            this.state.images.map((image, idx) => {
-              return (
-                <div key={idx} className="image-box">
-                  <img src={image.image} className="image" />
-                  <input
-                    onChange={this.handleChange}
-                    onClick={this.handleSelect.bind(this, image.id)}
-                    className="radio-button"
-                    type="radio"
-                    value={image.image}
-                    checked={this.state.selectedRadio === image.id}
-                  />
-                </div>
-              );
-            })}
-          <br />
+        <div>
+
+          <div style={imagesStyles[this.state.showImages]}>
+            {this.state.images &&
+              this.state.images.map((image, idx) => {
+                return (
+                  <div key={idx} className="image-box">
+                    <img
+                      src={image.image}
+                      className="image"
+                    />
+                    <input
+                      onChange={this.handleChange}
+                      onClick={this.handleSelect.bind(this, image.id)}
+                      className="radio-button"
+                      type="radio"
+                      value={image.image}
+                      checked={this.state.selectedRadio === image.id}
+                    />
+                  </div>
+                );
+              })}
+          </div>
+          <div>
           <button onClick={this.handleClickBGImage}>
             use as background image
           </button>
@@ -166,6 +170,8 @@ export default class Images extends Component {
           <button className="carousel-button" onClick={this.handleClickC3}>
             add to carousel 3
           </button>
+          </div>
+          <br />
         </div>
       </div>
     );

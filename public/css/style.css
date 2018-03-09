@@ -352,7 +352,7 @@ textarea {
 }
 
 .image-box {
-    display: inline;
+    float: right;
 }
 
 .image {
@@ -362,7 +362,7 @@ textarea {
 }
 
 .radio-button {
-    padding-bottom: 100px;
+
 }
 
 /*------------------------------------------------*/
