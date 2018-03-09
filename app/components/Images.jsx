@@ -99,8 +99,9 @@ export default class Images extends Component {
   }
 
   handleClickC1() {
-    this.state.selectedImages.map((image, idx) => {
-      database.ref("c1images/" + idx).set({
+    let date = new Date
+    this.state.selectedImages.map((image) => {
+      database.ref("c1images/" + date).set({
         imageURL: image
       });
     });
@@ -108,8 +109,9 @@ export default class Images extends Component {
   }
 
   handleClickC2() {
+    let date = new Date
     this.state.selectedImages.map((image, idx) => {
-      database.ref("c2images/" + idx).set({
+      database.ref("c2images/" + date).set({
         imageURL: image
       });
     });
@@ -117,8 +119,9 @@ export default class Images extends Component {
   }
 
   handleClickC3() {
+    let date = new Date
     this.state.selectedImages.map((image, idx) => {
-      database.ref("c3images/" + idx).set({
+      database.ref("c3images/" + date).set({
         imageURL: image
       });
     });

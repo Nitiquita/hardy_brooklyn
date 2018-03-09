@@ -19,7 +19,11 @@ export default class Carousel2 extends Component {
     .once("value")
     .then(snapshot => {
       let images = snapshot.val();
-      this.setState({ selectedImages: images})
+      let imagesArray = [];
+      for (var key in images) {
+        imagesArray.push(images[key])
+      }
+      this.setState({ selectedImages: imagesArray})
     });
   }
 
@@ -40,7 +44,7 @@ export default class Carousel2 extends Component {
     };
     return (
       <Slider {...settings}>
-    {this.state.selectedImages.map((image, idx) => {
+    {this.state.selectedImages && this.state.selectedImages.map((image, idx) => {
         return <img className="carousel-image" src={image["imageURL"]} key={idx}/>
       })}
       </Slider>
