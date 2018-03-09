@@ -2,10 +2,24 @@ import React, { Component } from "react";
 import { storage, database } from "../../firebase";
 import store from "../store";
 
+let imagesStyles = {
+  showImages: {
+    display: "inline-block"
+  },
+  hideImages: {
+    display: "none"
+  }
+};
+
 export default class Images extends Component {
   constructor(props) {
     super(props);
-    this.state = store.getState();
+    this.state = {
+      images: [],
+      showImages: "hideImages",
+      selectedRadio: null,
+      selectedImages: []
+    };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClickBGImage = this.handleClickBGImage.bind(this);
@@ -42,45 +56,31 @@ export default class Images extends Component {
                 photos.push(url);
               });
           });
-        })
-        // .catch(function(error) {
-        //   // A full list of error codes is available at
-        //   // https://firebase.google.com/docs/storage/web/handle-errors
-        //   switch (error.code) {
-        //     case "storage/object_not_found":
-        //       // File doesn't exist
-        //       break;
+        });
 
-        //     case "storage/unauthorized":
-        //       // User doesn't have permission to access the object
-        //       break;
-
-        //     case "storage/canceled":
-        //       // User canceled the upload
-        //       break;
-        //     case "storage/unknown":
-        //       // Unknown error occurred, inspect the server response
-        //       break;
-        //   }
-        // });
-        resolve(photos)
+      resolve(photos);
     });
     promise.then(photos => {
       this.setState({ images: photos });
     });
-
   }
 
   handleClick() {
-    let imagesArray
-    this.props.images ? imagesArray = this.props.images.map((image, idx) => {
-      return { image: image, id: idx}
-    }) : imagesArray = this.state.images.map((image, idx) => {
-      return { image: image, id: idx}
-    })
-    this.setState({ images: imagesArray})
+    let imagesArray;
+    this.props.images ? console.log("props") : console.log("state");
+    this.props.images
+      ? (imagesArray = this.props.images.map((image, idx) => {
+          return { image: image, id: idx };
+        }))
+      : (imagesArray = this.state.images.map((image, idx) => {
+          return { image: image, id: idx };
+        }));
+    this.setState({ images: imagesArray });
     this.forceUpdate();
+    this.setState({ showImages: "showImages" })
   }
+
+
   componentWillUnmount() {
     this.unsubscribe();
   }
@@ -89,7 +89,6 @@ export default class Images extends Component {
     let images = this.state.selectedImages;
     images.push(event.target.value);
     this.setState({ selectedImages: images });
-
   }
 
   handleClickBGImage() {
@@ -97,7 +96,7 @@ export default class Images extends Component {
     database.ref("bgimage").set({
       imageURL: bgImage
     });
-    this.setState({selectedRadio: null});
+    this.setState({ selectedRadio: null });
   }
 
   handleClickC1() {
@@ -106,7 +105,7 @@ export default class Images extends Component {
         imageURL: image
       });
     });
-    this.setState({selectedRadio: null});
+    this.setState({ selectedRadio: null });
   }
 
   handleClickC2() {
@@ -115,7 +114,7 @@ export default class Images extends Component {
         imageURL: image
       });
     });
-    this.setState({selectedRadio: null});
+    this.setState({ selectedRadio: null });
   }
 
   handleClickC3() {
@@ -124,22 +123,21 @@ export default class Images extends Component {
         imageURL: image
       });
     });
-    this.setState({selectedRadio: null});
+    this.setState({ selectedRadio: null });
   }
 
   handleSelect(id) {
-    console.log(id)
-    this.setState({selectedRadio: id});
+    console.log(id);
+    this.setState({ selectedRadio: id });
   }
 
   render() {
-    console.log(this.state.images)
     return (
       <div id="images">
         <button onClick={this.handleClick}>show all images</button>
-        <div>
-          {/* {this.props.images &&
-            this.props.images.map((image, idx) => {
+        <div style={imagesStyles[this.state.showImages]}>
+          {this.state.images &&
+            this.state.images.map((image, idx) => {
               return (
                 <div key={idx} className="image-box">
                   <img src={image.image} className="image" />
@@ -153,24 +151,7 @@ export default class Images extends Component {
                   />
                 </div>
               );
-            })} */}
-            {
-            this.state.images && this.state.images.map((image, idx) => {
-              return (
-                <div key={idx}  className="image-box">
-                  <img src={image.image} className="image" />
-                  <input
-                    onChange={this.handleChange}
-                    onClick={this.handleSelect.bind(this, image.id)}
-                    className="radio-button"
-                    type="radio"
-                    value={image.image}
-                    checked={this.state.selectedRadio === image.id}
-                  />
-                </div>
-              );
-            })
-            }
+            })}
           <br />
           <button onClick={this.handleClickBGImage}>
             use as background image
