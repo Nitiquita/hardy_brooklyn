@@ -40,7 +40,7 @@ section {
     display: inline-block;
     list-style: none;
     margin-left: 15px;
-    padding-top: 19px;
+    padding-top: 16px;
 }
 
 #nav-items li a {
@@ -174,19 +174,29 @@ section {
     display: inline-block;
 }
 
+#about-box {
+    font-weight: normal;
+    border: solid 2px goldenrod;
+    font-size: 80%;
+    background-color: rgb(189, 145, 189);
+    color: rgb(230, 230, 230);
+    line-height: 150%;
+    padding: 40px;
+}
+
 .circle{
     margin-top: 100px;
     line-height: 28px;;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 60%;
-    background-color: white;
-    text-align: center;
-    border-radius: 50%;;
+    background-color: purple;
+    /* text-align: center; */
+    /* border-radius: 50%;; */
     margin-right: 15px;
     border: solid 2px goldenrod
 }
 
-#circle-1 {
+/* #circle-1 {
     padding: 60px;
     margin: 0;
     height: 440px;
@@ -197,21 +207,21 @@ section {
     padding: 60px;
     height: 300px;
     width: 300px;
-    /* float: right; */
+    float: right;
 }
 
 #circle-3 {
     padding: 50px;
     height: 260px;
     width: 260px;
-    /* float: right; */
+    float: right;
 }
 
 #circle-4 {
     padding: 60px;
     height: 260px;
     width: 260px;
-}
+} */
 
 /*------------------------------------------------*/
 /*MEDIA*/
