@@ -168,6 +168,7 @@ export default class Nav extends Component {
         />
         <ul id="nav-items" style={navStyles[this.state.nav]}
         onMouseLeave={this.hideNav}>
+          <li></li>
           <li><Scroll type="id" element="events">events</Scroll></li>
           <li><Scroll type="id" element="about">about</Scroll></li>
           <li><Scroll type="id" element="media">media</Scroll></li>
