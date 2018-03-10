@@ -168,11 +168,11 @@ export default class Nav extends Component {
         />
         <ul id="nav-items" style={navStyles[this.state.nav]}
         onMouseLeave={this.hideNav}>
-          <li><Scroll type="id" element="events">Events</Scroll></li>
-          <li><Scroll type="id" element="about">About</Scroll></li>
-          <li><Scroll type="id" element="media">Media</Scroll></li>
-          <li><Scroll type="id" element="contact">Contact</Scroll></li>
-          <li onClick={this.showLogin}>Login</li>
+          <li><Scroll type="id" element="events">events</Scroll></li>
+          <li><Scroll type="id" element="about">about</Scroll></li>
+          <li><Scroll type="id" element="media">media</Scroll></li>
+          <li><Scroll type="id" element="contact">contact</Scroll></li>
+          <li onClick={this.showLogin}>login</li>
         </ul>
         <div id="logged-in" style={loginStyles[this.state.loggedIn]}>
         <div className="x-out" onClick={this.hideLoggedIn}>

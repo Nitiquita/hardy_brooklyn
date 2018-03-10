@@ -40,7 +40,7 @@ section {
     display: inline-block;
     list-style: none;
     margin-left: 15px;
-    padding-top: 20px;
+    padding-top: 19px;
 }
 
 #nav-items li a {
@@ -63,7 +63,7 @@ section {
     outline: 0;
     background: #fff;
     max-width: 100%;
-    border: 5px solid #c331f0;
+    border: solid 2px #c331f0;
     max-height: 100%;
     overflow-y: auto;
 
@@ -93,7 +93,7 @@ section {
     outline: 0;
     background: #fff;
     max-width: 100%;
-    border: 5px solid #c331f0;
+    border: solid 2px #c331f0;
     max-height: 100%;
     overflow-y: auto;
 }
@@ -144,7 +144,7 @@ section {
 }
 
 #event-headline h1 {
-    color: rgb(107, 22, 107);
+    color: rgb(149, 39, 149);
     margin: 0;
     text-align: center;
 }
@@ -168,7 +168,7 @@ section {
 /*------------------------------------------------*/
 
 #about {
-    color: rgb(107, 22, 107);
+    color:  rgb(149, 39, 149);
     font-weight: bolder;
     padding: 100px 25px;
     display: inline-block;
@@ -219,7 +219,7 @@ section {
 
 #media {
     padding: 100px;
-    color: rgb(107, 22, 107);
+    color:  rgb(149, 39, 149);
     font-weight: bolder;
     text-align: center;
 }
@@ -227,6 +227,10 @@ section {
 #media a {
     color: black;
     text-decoration:  none;
+}
+
+#media h1 {
+    padding-bottom: 60px;
 }
 
 .media-box {
@@ -254,6 +258,7 @@ section {
     color: rgb(149, 39, 149);
     padding-top: 75px;
     padding-left: 50px;
+    padding-bottom: 50px;
     margin-bottom: 0;
 }
 
@@ -261,8 +266,7 @@ section {
     font-size: 80%;
     margin: auto;
     width: 900px;
-    color: rgb(107, 22, 107);
-    padding-top: 15px;
+    color:  rgb(149, 39, 149);
     padding-left: 50px;
     background-color: rgb(194, 194, 194);
     padding-bottom: 40px;
@@ -359,10 +363,6 @@ textarea {
     height: 200px;
     margin-left: 25px;
     padding-top: 50px;
-}
-
-.radio-button {
-
 }
 
 /*------------------------------------------------*/
