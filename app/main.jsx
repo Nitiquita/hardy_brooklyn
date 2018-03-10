@@ -1,7 +1,7 @@
 "use strict";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Switch, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route, HashRouter} from "react-router-dom";
 import {connect, Provider} from 'react-redux'
 
 // import store from './store'

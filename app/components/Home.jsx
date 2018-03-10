@@ -1,6 +1,5 @@
 "use strict";
 import React, { Component } from "react";
-import ScrollableAnchor from "react-scrollable-anchor";
 import { Link, Route, Switch } from "react-router-dom";
 import { database } from "../../firebase";
 import store from "../store";

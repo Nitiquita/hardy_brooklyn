@@ -2,8 +2,7 @@
 import React, { Component } from "react";
 import { Link, Redirect} from "react-router-dom";
 import { auth } from "../../firebase";
-import { ScrollableAnchor } from "react-scrollable-anchor";
-import Scrollchor from 'react-scrollchor';
+import Scroll from 'react-scroll-to-element';
 
 let navStyles = {
   showNav: {
@@ -169,9 +168,10 @@ export default class Nav extends Component {
         />
         <ul id="nav-items" style={navStyles[this.state.nav]}
         onMouseLeave={this.hideNav}>
-          <li>Events</li>
-          <li><Link to="/#about">About</Link></li>
-          <li><Link to="/#contact">Contact</Link></li>
+          <li><Scroll type="id" element="events">Events</Scroll></li>
+          <li><Scroll type="id" element="about">About</Scroll></li>
+          <li><Scroll type="id" element="media">Media</Scroll></li>
+          <li><Scroll type="id" element="contact">Contact</Scroll></li>
           <li onClick={this.showLogin}>Login</li>
         </ul>
         <div id="logged-in" style={loginStyles[this.state.loggedIn]}>

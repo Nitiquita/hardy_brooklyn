@@ -44,7 +44,6 @@ export default class Carousel1 extends Component {
       slidesToScroll: 1,
       arrows: false
     };
-    console.log(this.state.selectedImages)
     return (
       <Slider {...settings}>
       {this.state.selectedImages && this.state.selectedImages.map((image, idx) => {
