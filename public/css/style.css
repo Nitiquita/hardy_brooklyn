@@ -198,8 +198,8 @@ section {
 }
 
 #media a {
-    color: black;
     text-decoration:  none;
+    color: white;
 }
 
 #media h1 {
@@ -207,15 +207,16 @@ section {
 }
 
 .media-box {
-    background-color: white;
+    background-color: rgb(136, 83, 136);
     padding: 15px;
     margin: 10px;
-    border: solid 5px black;
+    border: solid 2px goldenrod;
     margin-top: 40px;
 }
 
 .media-box h4 {
     margin: 15px;
+    color: white;
 }
 
 /*------------------------------------------------*/

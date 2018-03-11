@@ -68,9 +68,8 @@
 @media only screen and (max-width: 425px) {
 
   #nav-items li {
-    font-size: 300%;
-    display: block;
-    margin-top: 10px;
+    font-size: 200%;
+    margin-top: 5px;
     padding-top: 0px;
   }
 
