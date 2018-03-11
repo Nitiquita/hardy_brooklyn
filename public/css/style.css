@@ -307,6 +307,12 @@ textarea {
     padding: 100px;
 }
 
+#image-container {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .carousel-button {
    margin-right: 15px;
 }
@@ -320,16 +326,12 @@ textarea {
     margin-left: 15px;
 }
 
-/* textarea {
-    height: 400px;
-} */
-
 #ticket-link {
     float: right;
 }
 
 .image-box {
-    float: right;
+
 }
 
 .image {

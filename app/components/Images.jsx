@@ -4,7 +4,7 @@ import store from "../store";
 
 let imagesStyles = {
   showImages: {
-    display: "inline"
+    display: "flex"
   },
   hideImages: {
     display: "none"
@@ -99,8 +99,8 @@ export default class Images extends Component {
   }
 
   handleClickC1() {
-    let date = new Date
-    this.state.selectedImages.map((image) => {
+    let date = new Date();
+    this.state.selectedImages.map(image => {
       database.ref("c1images/" + date).set({
         imageURL: image
       });
@@ -109,7 +109,7 @@ export default class Images extends Component {
   }
 
   handleClickC2() {
-    let date = new Date
+    let date = new Date();
     this.state.selectedImages.map((image, idx) => {
       database.ref("c2images/" + date).set({
         imageURL: image
@@ -119,7 +119,7 @@ export default class Images extends Component {
   }
 
   handleClickC3() {
-    let date = new Date
+    let date = new Date();
     this.state.selectedImages.map((image, idx) => {
       database.ref("c3images/" + date).set({
         imageURL: image
@@ -136,46 +136,37 @@ export default class Images extends Component {
     return (
       <div id="images">
         <button onClick={this.handleClick}>show all images</button>
-        <div>
-
-          <div style={imagesStyles[this.state.showImages]}>
-            {this.state.images &&
-              this.state.images.map((image, idx) => {
-                return (
-                  <div key={idx} className="image-box">
-                    <img
-                      src={image.image}
-                      className="image"
-                    />
-                    <input
-                      onChange={this.handleChange}
-                      onClick={this.handleSelect.bind(this, image.id)}
-                      className="radio-button"
-                      type="radio"
-                      value={image.image}
-                      checked={this.state.selectedRadio === image.id}
-                    />
-                  </div>
-                );
-              })}
-          </div>
-          <div>
-          <button onClick={this.handleClickBGImage}>
-            use as background image
-          </button>
-          <h4>Select at least 5 images to add to each carousel</h4>
-          <button className="carousel-button" onClick={this.handleClickC1}>
-            add to carousel 1
-          </button>
-          <button className="carousel-button" onClick={this.handleClickC2}>
-            add to carousel 2
-          </button>
-          <button className="carousel-button" onClick={this.handleClickC3}>
-            add to carousel 3
-          </button>
-          </div>
-          <br />
+        <div style={imagesStyles[this.state.showImages]} id="image-container">
+          {this.state.images &&
+            this.state.images.map((image, idx) => {
+              return (
+                <div key={idx} className="image-box">
+                  <img src={image.image} className="image" />
+                  <input
+                    onChange={this.handleChange}
+                    onClick={this.handleSelect.bind(this, image.id)}
+                    className="radio-button"
+                    type="radio"
+                    value={image.image}
+                    checked={this.state.selectedRadio === image.id}
+                  />
+                </div>
+              );
+            })}
         </div>
+        <h4>Select at least 5 images to add to each carousel</h4>
+        <button className="carousel-button" onClick={this.handleClickC1}>
+          add to carousel 1
+        </button>
+        <button className="carousel-button" onClick={this.handleClickC2}>
+          add to carousel 2
+        </button>
+        <button className="carousel-button" onClick={this.handleClickC3}>
+          add to carousel 3
+        </button>
+        <button onClick={this.handleClickBGImage}>
+          use as background image
+        </button>
       </div>
     );
   }
