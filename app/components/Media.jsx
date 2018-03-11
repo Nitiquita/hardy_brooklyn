@@ -63,8 +63,8 @@ export default class Media extends Component {
     return (
       <section style={styles} id="media">
         <h1>Hardy Brooklyn in the Media</h1>
-        <div className="row">
-          <div className="col span-1-of-2">
+        <div>
+          <div>
             <h3>In the Media</h3>
             <div className="media-box">
             {this.state.media && this.state.media.map((media, idx)=>{
@@ -72,7 +72,7 @@ export default class Media extends Component {
             })}
             </div>
           </div>
-          <div className="col span-1-of-2">
+          <div>
             <h3>On Social Media</h3>
             <div className="media-box">
             <a href="https://www.facebook.com/hardy.brooklyn" target="_blank"><h4>Facebook</h4></a>
