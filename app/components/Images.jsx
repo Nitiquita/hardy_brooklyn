@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { storage, database } from "../../firebase";
-import store from "../store";
 
 let imagesStyles = {
   showImages: {
@@ -32,9 +31,6 @@ export default class Images extends Component {
   }
 
   componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      this.setState(store.getState());
-    });
     let photos = [];
     let promise = new Promise((resolve, reject) => {
       database
@@ -79,10 +75,6 @@ export default class Images extends Component {
     this.setState({ images: imagesArray });
     this.forceUpdate();
     this.setState({ showImages: "showImages" });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
   }
 
   handleChange(event) {

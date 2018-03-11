@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import { database } from "../../firebase";
-import store from "../store";
 
 import Nav from "./Nav";
 import Events from "./Events";
@@ -17,14 +16,15 @@ import Carousel3 from "./Carousel3";
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = store.getState();
+    this.state = {
+      backgroundImage: "",
+      width: 0,
+      height: 0
+    }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      this.setState(store.getState());
-    });
     this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);
     database
@@ -37,7 +37,6 @@ export default class Home extends Component {
   }
 
   componentWillUnmount() {
-    this.unsubscribe();
     window.removeEventListener("resize", this.updateWindowDimensions);
   }
 

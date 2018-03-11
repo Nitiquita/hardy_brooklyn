@@ -8,14 +8,12 @@ import Admin from "./components/Admin";
 
 document.addEventListener("DOMContentLoaded", function() {
   ReactDOM.render(
-    // <Provider store={store}>
     <HashRouter>
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/admin' component={Admin}/>
       </Switch>
     </HashRouter>
-    // </Provider>
     ,
     document.getElementById("app")
   );

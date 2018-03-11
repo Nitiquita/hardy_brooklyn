@@ -2,26 +2,22 @@ import React, { Component } from "react";
 import { storage, database } from "../../firebase";
 import FileUploader from "react-firebase-file-uploader";
 import Images from "./Images";
-import store from "../store";
 
 export default class Uploader extends Component {
   constructor(props) {
     super(props);
-    this.state = store.getState();
+    this.state = {
+      isUploading: false,
+      progress: 0,
+      image: "",
+      filename: "",
+      imageURL: "",
+      images: ""
+    }
     this.handleProgress = this.handleProgress.bind(this);
     this.handleUploadError = this.handleUploadError.bind(this);
     this.handleUploadStart = this.handleUploadStart.bind(this);
     this.handleUploadSuccess = this.handleUploadSuccess.bind(this);
-  }
-
-  componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      this.setState(store.getState());
-    });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
   }
 
   handleUploadStart() {

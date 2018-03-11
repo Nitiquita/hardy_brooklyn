@@ -1,19 +1,17 @@
 "use strict";
 import React, { Component } from "react";
 import Slider from "react-slick";
-import store from "../store";
 import { database } from "../../firebase";
 
 export default class Carousel2 extends Component {
   constructor(props) {
     super(props);
-    this.state = store.getState();
+    this.state = {
+      selectedImages: []
+    }
   }
 
   componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      this.setState(store.getState());
-    });
     database
     .ref("c3images")
     .once("value")
@@ -26,11 +24,6 @@ export default class Carousel2 extends Component {
       this.setState({ selectedImages: imagesArray})
     });
   }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
 
   render() {
     const settings = {

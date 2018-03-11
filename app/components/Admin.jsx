@@ -3,17 +3,7 @@ import React, { Component } from "react";
 import Uploader from "./Uploader";
 import AddMedia from "./AddMedia";
 import AddSocialMedia from "./AddSocialMedia"
-import { Link, Redirect } from "react-router-dom";
 import { database } from "../../firebase";
-
-let eventStyles = {
-  showEvent: {
-    visibility: "visible"
-  },
-  hideEvent: {
-    visibility: "hidden"
-  }
-};
 
 export default class Admin extends Component {
   constructor(props) {
