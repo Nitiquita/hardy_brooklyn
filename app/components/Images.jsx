@@ -18,7 +18,7 @@ export default class Images extends Component {
       images: [],
       showImages: "hideImages",
       selectedRadio: null,
-      selectedImages: [],
+      selectedImage: [],
       highlightSelected: null
     };
     this.handleClick = this.handleClick.bind(this);
@@ -28,6 +28,7 @@ export default class Images extends Component {
     this.handleClickC2 = this.handleClickC2.bind(this);
     this.handleClickC3 = this.handleClickC3.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -85,45 +86,36 @@ export default class Images extends Component {
   }
 
   handleChange(event) {
-    let images = this.state.selectedImages;
-    images.push(event.target.value);
-    this.setState({ selectedImages: images });
+    this.setState({ selectedImage: event.target.value });
   }
 
   handleClickBGImage() {
-    let bgImage = this.state.selectedImages[0];
     database.ref("bgimage").set({
-      imageURL: bgImage
+      imageURL: this.state.selectedImage
     });
     this.setState({ selectedRadio: null });
   }
 
   handleClickC1() {
     let date = new Date();
-    this.state.selectedImages.map(image => {
-      database.ref("c1images/" + date).set({
-        imageURL: image
-      });
+    database.ref("c1images/" + date).set({
+      imageURL: this.state.selectedImage
     });
     this.setState({ selectedRadio: null });
   }
 
   handleClickC2() {
     let date = new Date();
-    this.state.selectedImages.map((image, idx) => {
-      database.ref("c2images/" + date).set({
-        imageURL: image
-      });
+    database.ref("c2images/" + date).set({
+      imageURL: this.state.selectedImage
     });
     this.setState({ selectedRadio: null });
   }
 
   handleClickC3() {
     let date = new Date();
-    this.state.selectedImages.map((image, idx) => {
-      database.ref("c3images/" + date).set({
-        imageURL: image
-      });
+    database.ref("c3images/" + date).set({
+      imageURL: this.state.selectedImage
     });
     this.setState({ selectedRadio: null });
   }
@@ -131,6 +123,8 @@ export default class Images extends Component {
   handleSelect(id) {
     this.setState({ selectedRadio: id });
   }
+
+  handleDelete() {}
 
   render() {
     return (
@@ -154,6 +148,10 @@ export default class Images extends Component {
               );
             })}
         </div>
+        <br/>
+        <button className="carousel-button" onClick={this.handleClickBGImage}>
+          use as background image
+        </button>
         <h4>Select at least 5 images to add to each carousel</h4>
         <button className="carousel-button" onClick={this.handleClickC1}>
           add to carousel 1
@@ -164,9 +162,7 @@ export default class Images extends Component {
         <button className="carousel-button" onClick={this.handleClickC3}>
           add to carousel 3
         </button>
-        <button onClick={this.handleClickBGImage}>
-          use as background image
-        </button>
+        <button className="carousel-button" onClick={this.handleDelete}>delete</button>
       </div>
     );
   }
