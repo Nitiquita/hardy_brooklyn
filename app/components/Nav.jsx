@@ -4,15 +4,6 @@ import { Link, Redirect} from "react-router-dom";
 import { auth } from "../../firebase";
 import Scroll from 'react-scroll-to-element';
 
-let navStyles = {
-  showNav: {
-    display: "block"
-  },
-  hideNav: {
-    display: "none"
-  }
-}
-
 let loginStyles = {
   showLogin: {
     display: "block"
@@ -32,14 +23,11 @@ export default class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nav: "hideNav",
       login: "hideLogin",
       email: "",
       password: "",
       loggedIn: "hideLoggedIn"
     };
-    this.showNav = this.showNav.bind(this);
-    this.hideNav = this.hideNav.bind(this);
     this.showLogin = this.showLogin.bind(this);
     this.hideLogin = this.hideLogin.bind(this);
     this.hideLoggedIn = this.hideLoggedIn.bind(this);
@@ -58,18 +46,6 @@ export default class Nav extends Component {
     this.setState({
       loggedIn: "hideLoggedIn"
     })
-  }
-
-  showNav() {
-    this.setState({
-      nav: "showNav"
-    });
-  }
-
-  hideNav() {
-    this.setState({
-      nav: "hideNav"
-    });
   }
 
   showLogin() {
@@ -161,14 +137,7 @@ export default class Nav extends Component {
   render() {
     return (
       <div>
-        <img
-          id="nav"
-          src={require("../../public/icons/icons8-menu.svg")}
-          onMouseEnter={this.showNav}
-        />
-        <ul id="nav-items" style={navStyles[this.state.nav]}
-        onMouseLeave={this.hideNav}>
-          <li></li>
+        <ul id="nav-items">
           <li><Scroll type="id" element="events">events</Scroll></li>
           <li><Scroll type="id" element="about">about</Scroll></li>
           <li><Scroll type="id" element="media">media</Scroll></li>

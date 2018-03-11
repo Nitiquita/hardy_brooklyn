@@ -48,7 +48,7 @@ section {
 }
 
 #nav-items li:first-of-type {
-    margin-left: 80px;
+    margin-left: 20px;
 }
 
 #login {
@@ -144,7 +144,7 @@ section {
 }
 
 #event-headline h1 {
-    color: rgb(149, 39, 149);
+    color: rgb(107, 22, 107);
     margin: 0;
     text-align: center;
 }
@@ -170,7 +170,7 @@ section {
 /*------------------------------------------------*/
 
 #about {
-    color:  rgb(149, 39, 149);
+    color:  rgb(107, 22, 107);
     font-weight: bolder;
     padding: 100px 25px;
     display: inline-block;
@@ -180,8 +180,8 @@ section {
     font-weight: normal;
     border: solid 2px goldenrod;
     font-size: 80%;
-    background-color: rgb(189, 145, 189);
-    color: rgb(230, 230, 230);
+    background-color: rgb(136, 83, 136);
+    color: white;
     line-height: 150%;
     padding: 40px;
 }
@@ -192,7 +192,7 @@ section {
 
 #media {
     padding: 100px;
-    color:  rgb(149, 39, 149);
+    color:  rgb(107, 22, 107);
     font-weight: bolder;
     text-align: center;
 }
@@ -228,7 +228,7 @@ section {
 
 #contact h1 {
     text-align: center;
-    color: rgb(149, 39, 149);
+    color: rgb(107, 22, 107);
     padding-top: 75px;
     padding-left: 50px;
     padding-bottom: 50px;
@@ -239,7 +239,7 @@ section {
     font-size: 80%;
     margin: auto;
     width: 900px;
-    color:  rgb(149, 39, 149);
+    color: rgb(107, 22, 107);
     padding-left: 50px;
     background-color: rgb(194, 194, 194);
     padding-bottom: 40px;
@@ -258,7 +258,7 @@ button {
     margin-top: 25px;
     height: 50px;
     width: 150px;
-    background-color:  rgb(121, 22, 121);
+    background-color: rgb(107, 22, 107);
     color: white;
     font-size: 75%;
     border-radius: 25px

@@ -62,7 +62,7 @@ export default class Media extends Component {
     };
     return (
       <section style={styles} id="media">
-        <h1>What's to know about Hardy Brooklyn?</h1>
+        <h1>Hardy Brooklyn in the Media</h1>
         <div className="row">
           <div className="col span-1-of-2">
             <h3>In the Media</h3>
