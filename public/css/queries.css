@@ -74,7 +74,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
   }
 
   #nav-items li {
@@ -127,7 +126,7 @@
   }
 
   #bpt-small h2 {
-    color: rgb(107, 22, 107)
+    color: rgb(107, 22, 107);
     text-align: center;
   }
 
