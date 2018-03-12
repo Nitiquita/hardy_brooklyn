@@ -54,7 +54,7 @@ export default class Home extends Component {
       backgroundSize: "cover"
     };
     return (
-      <div style={parallaxStyles}>
+      <div id="background" style={parallaxStyles}>
         <Nav />
         <Events
           width={this.state.width && this.state.width}
