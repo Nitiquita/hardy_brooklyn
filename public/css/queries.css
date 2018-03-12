@@ -67,17 +67,15 @@
 
 /* Small phones: from 321px to 425px */
 @media only screen and (max-width: 425px) {
-  /* #events,
-  #about,
-  #media,
-  #contact {
+
+  #about {
     background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("../img/Body Notes 2.jpg");
     height: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-  } */
+  }
 
   #nav-items li {
     font-size: 200%;
@@ -129,7 +127,7 @@
   }
 
   #bpt-small h2 {
-    color: rgb(149, 39, 149);
+    color: rgb(107, 22, 107)
     text-align: center;
   }
 
