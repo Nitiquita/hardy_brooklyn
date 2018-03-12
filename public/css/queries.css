@@ -67,7 +67,7 @@
 /* Small phones: from 321px to 425px */
 @media only screen and (max-width: 425px) {
   section {
-    background-image: url("../img/Body Notes 2.jpg")
+    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("../img/Body Notes 2.jpg");
     height: auto;
     background-position: center;
     background-repeat: no-repeat;
