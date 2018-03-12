@@ -27,7 +27,6 @@ export default class Images extends Component {
     this.handleClickC2 = this.handleClickC2.bind(this);
     this.handleClickC3 = this.handleClickC3.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -116,8 +115,6 @@ export default class Images extends Component {
     this.setState({ selectedRadio: id });
   }
 
-  handleDelete() {}
-
   render() {
     return (
       <div id="images">
@@ -154,7 +151,6 @@ export default class Images extends Component {
         <button className="carousel-button" onClick={this.handleClickC3}>
           add to carousel 3
         </button>
-        <button className="carousel-button" onClick={this.handleDelete}>delete</button>
       </div>
     );
   }

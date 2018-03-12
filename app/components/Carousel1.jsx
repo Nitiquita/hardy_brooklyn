@@ -38,11 +38,13 @@ export default class Carousel1 extends Component {
       arrows: false
     };
     return (
+      <div className="slider-box">
       <Slider {...settings}>
       {this.state.selectedImages && this.state.selectedImages.map((image, idx) => {
         return <img className="carousel-image" src={image["imageURL"]} key={idx}/>
       })}
       </Slider>
+      </div>
     );
   }
 }

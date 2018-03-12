@@ -66,6 +66,9 @@
 
 /* Small phones: from 321px to 425px */
 @media only screen and (max-width: 425px) {
+  section {
+    height: auto;
+  }
 
   #nav-items li {
     font-size: 200%;

@@ -1,5 +1,6 @@
 "use strict";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { database } from "../../firebase"
 
 export default class Media extends Component {

@@ -4,6 +4,7 @@ import Uploader from "./Uploader";
 import AddMedia from "./AddMedia";
 import AddSocialMedia from "./AddSocialMedia"
 import { database } from "../../firebase";
+import { Link } from "react-router-dom";
 
 export default class Admin extends Component {
   constructor(props) {

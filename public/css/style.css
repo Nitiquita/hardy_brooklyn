@@ -50,7 +50,7 @@ section {
     height: auto;
     width: auto;
     top: 80px;
-    left: 20px;;
+    right: 20px;;
     display: block;
     z-index: 10;
     outline: 0;
@@ -80,7 +80,7 @@ section {
     height: auto;
     width: auto;
     top: 80px;
-    left: 20px;
+    right: 20px;
     display: block;
     z-index: 10;
     outline: 0;
@@ -337,6 +337,7 @@ textarea {
 /*CAROUSEL*/
 /*------------------------------------------------*/
 
-/* .carousel-image {
-    height: 250px;
-} */
+.slider-box {
+    background-color: rgba(76, 0, 130, 0.644);
+    padding-top: 10px;
+}
