@@ -103,11 +103,6 @@
     margin-left: 5px;
   }
 
-  #about,
-  #contact {
-    padding-bottom: 400px;
-  }
-
   #about-box {
     padding: 10px;
   }
@@ -136,10 +131,6 @@
   #bpt-small {
     padding-top: 50px;
     display: block;
-  }
-
-  #media {
-    padding-bottom: 400px;
   }
 
   .media-box {
