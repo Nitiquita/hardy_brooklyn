@@ -67,14 +67,6 @@
 
 /* Small phones: from 321px to 425px */
 @media only screen and (max-width: 425px) {
-  section {
-    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url("../img/Body Notes 2.jpg");
-    height: auto;
-    background-position: center;
-    background-repeat: repeat;
-    background-attachment: fixed;
-  }
-
   #nav-items li {
     font-size: 200%;
     margin-top: 5px;

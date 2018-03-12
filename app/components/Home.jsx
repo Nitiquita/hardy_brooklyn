@@ -55,7 +55,10 @@ export default class Home extends Component {
       backgroundSize: "cover"
     } :
     parallaxStyles = {
-
+      backgroundImage: `linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.048)), url(${backgroundImage})`,
+      backgroundPosition: "center",
+      backgroundRepeat: "repeat",
+      backgroundAttachment: "fixed"
     }
     return (
       <div id="background" style={parallaxStyles}>
