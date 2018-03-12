@@ -29,7 +29,6 @@ export default class Events extends Component {
         .once("value")
         .then(function(snapshot) {
           value = snapshot.val();
-          console.log(value)
           resolve(value);
         });
     });
@@ -55,7 +54,6 @@ export default class Events extends Component {
       height: this.props.height,
       width: this.props.width
     };
-    console.log(this.state.link)
     return (
       <section id="events" style={styles}>
         <div id="event-headline">
