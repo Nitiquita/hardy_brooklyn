@@ -72,7 +72,7 @@ export default class Home extends Component {
         <Carousel2 width={this.state.width} />
         <Media/>
         <Carousel3 width={this.state.width} />
-        <Contact width={this.state.width} height={this.state.height} />
+        <Contact/>
       </div>
     );
   }

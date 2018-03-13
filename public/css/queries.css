@@ -27,7 +27,8 @@
     padding-top: 3px;
   }
 
-  #about-box {
+  #about-box,
+  #about-drop-down-box {
     font-size: 100%;
     padding: 10px;
   }
@@ -50,7 +51,8 @@
     font-size: 160%;
   }
 
-  #about-box {
+  #about-box,
+  #about-drop-down-box{
     font-size: 100%
   }
 
@@ -105,16 +107,14 @@
     margin-left: 5px;
   }
 
-  #about-box {
+  #about-box,
+  #about-drop-down-box {
     padding: 10px;
+    font-size: 200%;
   }
 
   h1 {
     font-size: 300%;
-  }
-
-  #about-box {
-    font-size: 200%;
   }
 
   #bpt-small img {
@@ -218,6 +218,6 @@
 
   input[type=radio] {
     margin-left: 5px;
-}
+  }
 
 }
