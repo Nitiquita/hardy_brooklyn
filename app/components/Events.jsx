@@ -25,7 +25,7 @@ export default class Events extends Component {
     let promise2 = new Promise((resolve, reject) => {
       let value;
       database
-        .ref("events/links/")
+        .ref("event-links/")
         .once("value")
         .then(function(snapshot) {
           value = snapshot.val();

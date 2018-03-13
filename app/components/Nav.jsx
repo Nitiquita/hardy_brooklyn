@@ -1,8 +1,8 @@
 "use strict";
 import React, { Component } from "react";
-import { Link, Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { auth } from "../../firebase";
-import Scroll from 'react-scroll-to-element';
+import Scroll from "react-scroll-to-element";
 
 let loginStyles = {
   showLogin: {
@@ -38,14 +38,17 @@ export default class Nav extends Component {
   }
 
   logOut() {
-    auth.signOut().then(function() {
-      console.log("signed out")
-    }).catch(function(error) {
-      console.log(error)
-    });
+    auth
+      .signOut()
+      .then(function() {
+        console.log("signed out");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
     this.setState({
       loggedIn: "hideLoggedIn"
-    })
+    });
   }
 
   showLogin() {
@@ -57,41 +60,41 @@ export default class Nav extends Component {
         } else {
           isUser = false;
         }
-        resolve(isUser)
-      })
-    })
+        resolve(isUser);
+      });
+    });
     userPromise.then(user => {
       if (user) {
         this.setState({
           loggedIn: true
-        })
-    } else {
-      console.log(user)
+        });
+      } else {
+        console.log(user);
         this.setState({
           login: "showLogin"
-        })
-    }
-    })
+        });
+      }
+    });
   }
 
   hideLogin() {
     this.setState({
       login: "hideLogin"
-    })
+    });
   }
 
   hideLoggedIn() {
     this.setState({
       loggedIn: "hideLoggedIn"
-    })
+    });
   }
 
   handleChange1(event) {
-    this.setState({email: event.target.value});
+    this.setState({ email: event.target.value });
   }
 
   handleChange2(event) {
-    this.setState({password: event.target.value})
+    this.setState({ password: event.target.value });
   }
 
   handleSubmit(event) {
@@ -104,7 +107,7 @@ export default class Nav extends Component {
       var errorMessage = error.message;
     });
 
-    let userPromise = new Promise (function(resolve, reject) {
+    let userPromise = new Promise(function(resolve, reject) {
       let isUser = false;
       auth.onAuthStateChanged(function(user) {
         if (user) {
@@ -117,58 +120,93 @@ export default class Nav extends Component {
           var uid = user.uid;
           var providerData = user.providerData;
           isUser = true;
-          resolve(isUser)
+          resolve(isUser);
         } else {
-          console.log('no user')
+          console.log("no user");
         }
       });
     }).then(user => {
-      if(user) {
+      if (user) {
         this.setState({
           login: "hideLogin",
           loggedIn: "showLoggedIn"
-        })
+        });
       }
-    })
+    });
     this.refs.email.value = "";
-    this.refs.password.value="";
+    this.refs.password.value = "";
   }
 
   render() {
     return (
       <div>
+        <div id="nav-box">
+        <img
+          id="nav"
+          src={require("../../public/icons/icons8-menu.svg")}
+          onMouseEnter={this.showNav}
+        />
         <ul id="nav-items">
-          <li><Scroll type="id" element="events">events</Scroll></li>
-          <li><Scroll type="id" element="about">about</Scroll></li>
-          <li><Scroll type="id" element="media">media</Scroll></li>
-          <li><Scroll type="id" element="contact">contact</Scroll></li>
+          <li>
+            <Scroll type="id" element="events">
+              events
+            </Scroll>
+          </li>
+          <li>
+            <Scroll type="id" element="about">
+              about
+            </Scroll>
+          </li>
+          <li>
+            <Scroll type="id" element="media">
+              media
+            </Scroll>
+          </li>
+          <li>
+            <Scroll type="id" element="contact">
+              contact
+            </Scroll>
+          </li>
           <li onClick={this.showLogin}>login</li>
         </ul>
+        </div>
         <div id="logged-in" style={loginStyles[this.state.loggedIn]}>
-        <div className="x-out" onClick={this.hideLoggedIn}>
-        x
+          <div className="x-out" onClick={this.hideLoggedIn}>
+            x
           </div>
           <div id="logged-in-box">
-        <h4>You are logged in!</h4>
-        <button onClick={this.logOut}>logout</button>
-        <Link id="link-admin" to="/admin"><button>admin page</button></Link>
-        </div>
-        </div>
-        <div id="login" style={loginStyles[this.state.login]} >
-        <div className="x-out" onClick={this.hideLogin}>
-        x
+            <h4>You are logged in!</h4>
+            <button onClick={this.logOut}>logout</button>
+            <Link id="link-admin" to="/admin">
+              <button>admin page</button>
+            </Link>
           </div>
-        <form onSubmit={this.handleSubmit}>
-          ADMIN USE ONLY
-          <br/>
-          Email:
-          <input ref="email" type="email" name="email" onChange={this.handleChange1}/>
-          <br/>
-          Password:
-          <input ref="password" type="password" name="password" onChange={this.handleChange2}/>
-          <br/>
-          <button>submit</button>
-        </form>
+        </div>
+        <div id="login" style={loginStyles[this.state.login]}>
+          <div className="x-out" onClick={this.hideLogin}>
+            x
+          </div>
+          <form onSubmit={this.handleSubmit}>
+            ADMIN USE ONLY
+            <br />
+            Email:
+            <input
+              ref="email"
+              type="email"
+              name="email"
+              onChange={this.handleChange1}
+            />
+            <br />
+            Password:
+            <input
+              ref="password"
+              type="password"
+              name="password"
+              onChange={this.handleChange2}
+            />
+            <br />
+            <button>submit</button>
+          </form>
         </div>
       </div>
     );

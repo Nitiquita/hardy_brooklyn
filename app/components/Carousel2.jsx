@@ -37,7 +37,7 @@ export default class Carousel2 extends Component {
     };
     return (
       <div className="slider-box">
-      <Slider {...settings}>
+      <Slider class="slider" {...settings}>
     {this.state.selectedImages && this.state.selectedImages.map((image, idx) => {
         return <img className="carousel-image" src={image["imageURL"]} key={idx}/>
       })}

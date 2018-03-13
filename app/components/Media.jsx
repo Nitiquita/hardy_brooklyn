@@ -69,17 +69,18 @@ export default class Media extends Component {
             <h3>In the Media</h3>
             <div className="media-box">
             {this.state.media && this.state.media.map((media, idx)=>{
-              return <h4 key={idx}><a href={media.link} target="_blank">{media.source} {media.date}</a></h4>
+              return <a key={idx} href={media.link} target="_blank"><h4 id="press-link">{media.source}</h4>
+              <h4>{media.date}</h4></a>
             })}
             </div>
           </div>
           <div>
             <h3>On Social Media</h3>
-            <div className="media-box">
+            <div className="media-box" id="social-media-links">
             <a href="https://www.facebook.com/hardy.brooklyn" target="_blank"><h4>Facebook</h4></a>
             <a href="https://www.modelmayhem.com/hardybrooklyn" target="_blank"><h4>Model Mayhem</h4></a>
             {this.state.socialMedia && this.state.socialMedia.map((media, idx)=>{
-              return <h4 key={idx}><a href={media.link} target="_blank">{media.name}</a></h4>
+              return <h4 key={idx }><a href={media.link} target="_blank">{media.name}</a></h4>
             })}
             </div>
           </div>

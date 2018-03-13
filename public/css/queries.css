@@ -1,15 +1,12 @@
-
-
-
 /*1200px to 1440px*/
 @media only screen and (max-width: 1440px) {
-  #nav-items li {
-    padding-top: 25px;
-  }
-
   #bpt_eventbody {
     padding-top: 100px;
   }
+
+  #nav-items {
+    padding-top: 18px;
+}
 
   section {
     padding-bottom: 40px;
@@ -27,12 +24,18 @@
 @media only screen and (max-width: 1024px) {
   #nav-items li {
     font-size: 120%;
-    padding-top: 28px;
+    padding-top: 3px;
   }
 
   #about-box {
     font-size: 100%;
     padding: 10px;
+  }
+
+  #read-more {
+    padding: 8px;
+    height: auto;
+    width: auto;
   }
 
   #contact form {
@@ -45,11 +48,16 @@
 @media only screen and (max-width: 768px) {
   #nav-items li {
     font-size: 160%;
-    padding-top: 28px;
   }
 
   #about-box {
     font-size: 100%
+  }
+
+  #read-more {
+    padding: 4px;
+    height: auto;
+    width: auto;
   }
 
   #media h3,
@@ -67,17 +75,19 @@
 
 /* Small phones: from 321px to 425px */
 @media only screen and (max-width: 425px) {
+  #nav {
+    height: 30px;
+  }
+
   #nav-items li {
     font-size: 200%;
-    margin-top: 5px;
-    padding-top: 0px;
     margin-right: 10px;
+    padding-top: 4px;
   }
 
-  #nav-items {
-    padding-top: 50px;
+  #nav-items li:first-of-type {
+    margin-left: 5px;
   }
-
 
   #login,
   #logged-in {
@@ -146,6 +156,7 @@
   #contact form {
     padding: 10px;
     font-size: 200%;
+    width: auto;
   }
 
   input[type=text] {
@@ -167,8 +178,7 @@
 
   #nav-items li {
     font-size: 200%;
-    margin-top: 10px;
-    padding-top: 0px;
+    padding-top: 5px;
   }
 
 
@@ -193,13 +203,17 @@
 
 /* Small phones: from 0 to 320px */
 @media only screen and (max-width: 320px) {
+  #nav-items li {
+    margin-right: 5px;
+    padding-top: 6px;
+  }
 
   #bpt-small img {
     margin: 0 68px;
   }
 
   #sqr {
-    width: 300px;
+    width: 280px;
   }
 
   input[type=radio] {

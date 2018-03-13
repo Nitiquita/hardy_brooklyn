@@ -1,20 +1,60 @@
 "use strict";
 import React, { Component } from "react";
 
+let aboutStyles = {
+  showAbout: {
+    display: "block"
+  },
+  hideAbout: {
+    display: "none"
+  },
+  showParagraph: {
+    display: "block"
+  },
+  hideParagraph: {
+    display: "none"
+  }
+}
+
 export default class About extends Component {
   constructor(props) {
     super(props);
+    this.state ={
+      about: "hideAbout",
+      paragraph: "showParagraph"
+    }
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  handleClick(event) {
+    event.preventDefault();
+    this.setState({
+      about: "showAbout",
+      paragraph: "hideParagraph"
+    })
+  }
+
+
   render() {
-    const styles = {
-      height: this.props.height
-    };
     return (
-      <section style={styles} id="about">
+      <section id="about">
         <h1>Who is Hardy Brooklyn?</h1>
-        <div id="about-box">
+        <div style={aboutStyles[this.state.paragraph]}id="about-box">
           <p>
+            Born and raised in Brooklyn and Nassau County (Long Island), Hardy
+            was the black-sheep of his community. He was stifled by this
+            conservative environment and society’s expectations for many years.
+            He was able to rise above it and became successful in many different
+            industries. For example, he built a successful tech company, worked
+            in kosher foods, worked in event planning and large scale festivals
+            and started a business development consultant company. Yet
+            throughout his successes, he still felt like there was something
+            still missing, something larger…
+          </p>
+          <button onClick={this.handleClick} id="read-more">Read More</button>
+        </div>
+        <div style={aboutStyles[this.state.about]} id="about-drop-down-box">
+        <p>
             Born and raised in Brooklyn and Nassau County (Long Island), Hardy
             was the black-sheep of his community. He was stifled by this
             conservative environment and society’s expectations for many years.

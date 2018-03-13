@@ -47,7 +47,7 @@ export default class Admin extends Component {
 
   handleSubmitLink(event) {
     event.preventDefault();
-    database.ref("events/links/" + this.state.date).set({
+    database.ref("event-links/" + this.state.date).set({
       link: this.state.link
     })
     this.refs.link.value = "";

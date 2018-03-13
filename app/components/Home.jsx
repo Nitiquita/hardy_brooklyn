@@ -68,15 +68,9 @@ export default class Home extends Component {
           height={this.state.height && this.state.height}
         />
         <Carousel1 width={this.state.width} />
-        <About
-          width={this.state.width && this.state.width}
-          height={this.state.height && this.state.height}
-        />
+        <About/>
         <Carousel2 width={this.state.width} />
-        <Media
-          width={this.state.width && this.state.width}
-          height={this.state.height && this.state.height}
-        />
+        <Media/>
         <Carousel3 width={this.state.width} />
         <Contact width={this.state.width} height={this.state.height} />
       </div>
