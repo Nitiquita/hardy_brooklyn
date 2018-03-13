@@ -94,7 +94,7 @@ export default class Admin extends Component {
           </form>
           <form onSubmit={this.handleSubmitLink}>
             <h1>Add Event Link for Small Screens</h1>
-            <h5>Paste link from Brown Paper Tickets site</h5>
+            <h5>Paste HTML from Brown Paper Tickets site</h5>
             <h6>For more than one event paste and submit links separately</h6>
             <br/>
             <h6>Date Format: Monday, April 4, 2018 </h6>

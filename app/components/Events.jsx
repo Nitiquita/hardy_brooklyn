@@ -67,9 +67,7 @@ export default class Events extends Component {
           for (var key in link) {
           return <div key={idx} id="bpt-small">
             <h2>{key}</h2>
-            <a href={link[key]} target="_blank">
-            <img src="http://www.brownpapertickets.com/g/6/BPT_buy_tickets_large.png" />
-          </a>
+            <div dangerouslySetInnerHTML={{ __html: link[key]}}/>
             </div>
           }
         })}

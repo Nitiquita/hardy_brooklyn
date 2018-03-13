@@ -117,10 +117,6 @@
     font-size: 300%;
   }
 
-  #bpt-small img {
-    margin: 0 115px;
-  }
-
   #bpt-small h2 {
     color: rgb(107, 22, 107);
     text-align: center;
@@ -132,7 +128,8 @@
 
   #bpt-small {
     padding-top: 50px;
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .media-box {
@@ -181,11 +178,6 @@
     padding-top: 5px;
   }
 
-
-  #bpt-small img {
-    margin: 0 95px;
-  }
-
   #contact form {
     padding: 10px;
     font-size: 225%;
@@ -206,10 +198,6 @@
   #nav-items li {
     margin-right: 5px;
     padding-top: 6px;
-  }
-
-  #bpt-small img {
-    margin: 0 68px;
   }
 
   #sqr {
