@@ -19,6 +19,8 @@ let loginStyles = {
   }
 };
 
+let isAuthenticated = false;
+
 export default class Nav extends Component {
   constructor(props) {
     super(props);
@@ -68,6 +70,7 @@ export default class Nav extends Component {
         this.setState({
           loggedIn: true
         });
+        isAuthenticated = true;
       } else {
         console.log(user);
         this.setState({
@@ -212,3 +215,4 @@ export default class Nav extends Component {
     );
   }
 }
+ export { isAuthenticated }

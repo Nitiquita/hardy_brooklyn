@@ -93,9 +93,9 @@
 
   #login,
   #logged-in {
-    left: 2px;
+    left: 0px;
     font-size: 400%;
-
+    width: auto;
   }
 
   #logged-in button {
