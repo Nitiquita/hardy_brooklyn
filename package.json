@@ -19,6 +19,7 @@
     "connect-ensure-login": "^0.1.1",
     "create-react-class": "^15.6.2",
     "css-loader": "^0.28.9",
+    "dangerously-set-inner-html": "^2.0.1",
     "express": "^4.16.2",
     "file-loader": "^1.1.6",
     "firebase": "^4.9.1",

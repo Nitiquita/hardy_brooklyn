@@ -34,19 +34,23 @@ export default class Events extends Component {
     });
     promise1.then(value => {
       let stringHTML = `` + value.HTML;
+      // let extractscript = /<script[\s\S]*<\/script>/gi.exec(stringHTML);
+      // stringHTML = stringHTML.replace(extractscript[0], "");
       this.setState({
         HTML: stringHTML
       });
+      // window.eval(extractscript[1])
     });
     promise2.then(value => {
       let link = [];
       for (var key in value) {
-        link.push({[key]: value[key]["link"]})
+        link.push({ [key]: value[key]["link"] });
       }
       this.setState({
         link: link
       });
     });
+
   }
 
   render() {
@@ -63,14 +67,17 @@ export default class Events extends Component {
           id="bpt-large"
           dangerouslySetInnerHTML={{ __html: this.state.HTML }}
         />
-        {this.state.link && this.state.link.map((link, idx) => {
-          for (var key in link) {
-          return <div key={idx} id="bpt-small">
-            <h2>{key}</h2>
-            <div dangerouslySetInnerHTML={{ __html: link[key]}}/>
-            </div>
-          }
-        })}
+        {this.state.link &&
+          this.state.link.map((link, idx) => {
+            for (var key in link) {
+              return (
+                <div key={idx} id="bpt-small">
+                  <h2>{key}</h2>
+                  <div dangerouslySetInnerHTML={{ __html: link[key] }} />
+                </div>
+              );
+            }
+          })}
       </section>
     );
   }

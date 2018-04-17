@@ -39,9 +39,10 @@ export default class Uploader extends Component {
       .then(url => {
         this.setState({ imageURL: url });
         let sliceAt;
+        console.log(filename.slice(-4))
         if (
-          filename.slice(0, -4) === "peg" ||
-          filename.slice(0, -4) === "PEG"
+          filename.slice(-4) === "jpeg" ||
+          filename.slice(-4) === "JPEG"
         ) {
           sliceAt = -5;
         } else {
