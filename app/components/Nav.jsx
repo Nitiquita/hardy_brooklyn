@@ -144,11 +144,11 @@ export default class Nav extends Component {
     return (
       <div>
         <div id="nav-box">
-        <img
+        {/* <img
           id="nav"
           src={require("../../public/icons/icons8-menu.svg")}
           onMouseEnter={this.showNav}
-        />
+        /> */}
         <ul id="nav-items">
           <li>
             <Scroll type="id" element="events">
