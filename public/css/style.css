@@ -174,7 +174,8 @@ button {
     background-color: rgba(136, 83, 136, 0.644);
 }
 
-#bpt-large a {
+#bpt-large a,
+#bpt-small a {
     width: auto;
     color: white;
     text-decoration: none;
@@ -182,6 +183,10 @@ button {
 
 #bpt-small {
     display: none;
+    padding: 50px;
+    border: solid 2px indigo;
+    text-align: center;
+    background-color: rgba(136, 83, 136, 0.644);
 }
 
 /*------------------------------------------------*/
