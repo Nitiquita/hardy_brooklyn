@@ -85,14 +85,14 @@ export default class Admin extends Component {
             <button id="go-home">HOME</button>
           </Link>
           <form onSubmit={this.handleSubmit}>
-            <h1>Add Event Information for Large Screens</h1>
+            <h1>Add Event Information</h1>
             <h5>Paste HTML code from Brown Paper Tickets Widget</h5>
             <h6>For more than one event paste all HTML together</h6>
             <textarea ref="HTML" onChange={this.handleChange} />
             <br />
             <button>submit</button>
           </form>
-          <form onSubmit={this.handleSubmitLink}>
+          {/* <form onSubmit={this.handleSubmitLink}>
             <h1>Add Event Link for Small Screens</h1>
             <h5>Paste HTML from Brown Paper Tickets site</h5>
             <h6>For more than one event paste and submit links separately</h6>
@@ -103,7 +103,7 @@ export default class Admin extends Component {
             <textarea ref="link" onChange={this.handleChangeLink} />
             <br />
             <button>submit</button>
-          </form>
+          </form> */}
           <Uploader />
           <AddMedia />
           <AddSocialMedia/>

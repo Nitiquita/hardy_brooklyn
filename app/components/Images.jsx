@@ -27,6 +27,9 @@ export default class Images extends Component {
     this.handleClickC2 = this.handleClickC2.bind(this);
     this.handleClickC3 = this.handleClickC3.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleDelete1 = this.handleDelete1.bind(this);
+    this.handleDelete2 = this.handleDelete2.bind(this);
+    this.handleDelete3 = this.handleDelete3.bind(this);
   }
 
   componentDidMount() {
@@ -115,6 +118,21 @@ export default class Images extends Component {
     this.setState({ selectedRadio: id });
   }
 
+  handleDelete1() {
+    database.ref("c1images/").remove()
+    this.setState({ selectedRadio: null });
+  }
+
+  handleDelete2() {
+    database.ref("c2images/").remove()
+    this.setState({ selectedRadio: null });
+  }
+
+  handleDelete3() {
+    database.ref("c3images/").remove()
+    this.setState({ selectedRadio: null });
+  }
+
   render() {
     return (
       <div id="images">
@@ -150,6 +168,16 @@ export default class Images extends Component {
         </button>
         <button className="carousel-button" onClick={this.handleClickC3}>
           add to carousel 3
+        </button>
+        <br/>
+        <button className="carousel-button" onClick={this.handleDelete1}>
+        clear carousel 1
+        </button>
+        <button className="carousel-button" onClick={this.handleDelete2}>
+        clear carousel 2
+        </button>
+        <button className="carousel-button" onClick={this.handleDelete3}>
+        clear carousel 3
         </button>
       </div>
     );

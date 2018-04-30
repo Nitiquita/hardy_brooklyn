@@ -50,7 +50,6 @@ export default class Events extends Component {
         link: link
       });
     });
-
   }
 
   render() {
@@ -63,11 +62,17 @@ export default class Events extends Component {
         <div id="event-headline">
           <h1>Where can I see Hardy Brooklyn?</h1>
         </div>
-        <div
-          id="bpt-large"
-          dangerouslySetInnerHTML={{ __html: this.state.HTML }}
-        />
-        {this.state.link &&
+        <div id="bpt-large">
+          <div dangerouslySetInnerHTML={{ __html: this.state.HTML }} />
+          <br/>
+          _______________________________________________
+          <br/>
+          <br/>
+          <a href="https://www.verlocal.com/pages/calendar_frame?cal_id=360814&mode=customer&type=grid&listing_id=26309\\\">
+            Paint My Body and Go Out for a Night of Fun
+          </a>
+        </div>
+        {/* {this.state.link &&
           this.state.link.map((link, idx) => {
             for (var key in link) {
               return (
@@ -77,7 +82,7 @@ export default class Events extends Component {
                 </div>
               );
             }
-          })}
+          })} */}
       </section>
     );
   }
