@@ -114,8 +114,8 @@ export default class Contact extends Component {
           <input onChange={this.handleChangeTime} type="text" name="time" ref="time"/>
           </div>
           <div className="form-input-item">
+          <input onChange={this.handleChangeMailingList} type="checkbox" name="mailingList" value="mailingList" checked={this.state.checked}/>
           Add me to the Hardy Brooklyn mailing list!
-          <input onChange={this.handleChangeMailingList} type="radio" name="mailingList" value="mailingList" checked={this.state.checked}/>
           <br />
           <button type="submit">SUBMIT</button>
           </div>

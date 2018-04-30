@@ -296,8 +296,8 @@ button {
     height: 25px;
 }
 
-input[type=radio] {
-    margin-left: 20px;
+input[type=checkbox] {
+    margin: 10px 10px 10px 0;
 }
 
 button {
@@ -399,3 +399,5 @@ textarea {
     display: flex;
     align-items: center;
 }
+
+
