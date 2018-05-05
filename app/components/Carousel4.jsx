@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import { database } from "../../firebase";
 
-export default class Carousel3 extends Component {
+export default class Carousel4 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export default class Carousel3 extends Component {
 
   componentDidMount() {
     database
-    .ref("c3images")
+    .ref("c4images")
     .once("value")
     .then(snapshot => {
       let images = snapshot.val();
@@ -37,7 +37,7 @@ export default class Carousel3 extends Component {
     };
     return (
       <div className="slider-box">
-      <h6 class="carousel-title"><a href="http://solas.studio">Live Art Soiree Events with Solas Studio</a></h6>
+      <h6 class="carousel-title"><a href=" http://humanconnectionarts.org/">Human Connection Arts Events</a></h6>
       <Slider {...settings}>
     {this.state.selectedImages && this.state.selectedImages.map((image, idx) => {
         return <img className="carousel-image" src={image["imageURL"]} key={idx}/>

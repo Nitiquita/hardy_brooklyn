@@ -26,10 +26,12 @@ export default class Images extends Component {
     this.handleClickC1 = this.handleClickC1.bind(this);
     this.handleClickC2 = this.handleClickC2.bind(this);
     this.handleClickC3 = this.handleClickC3.bind(this);
+    this.handleClickC4 = this.handleClickC4.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleDelete1 = this.handleDelete1.bind(this);
     this.handleDelete2 = this.handleDelete2.bind(this);
     this.handleDelete3 = this.handleDelete3.bind(this);
+    this.handleDelete4 = this.handleDelete4.bind(this);
   }
 
   componentDidMount() {
@@ -114,6 +116,14 @@ export default class Images extends Component {
     this.setState({ selectedRadio: null });
   }
 
+  handleClickC4() {
+    let date = new Date();
+    database.ref("c4images/" + date).set({
+      imageURL: this.state.selectedImage
+    });
+    this.setState({ selectedRadio: null });
+  }
+
   handleSelect(id) {
     this.setState({ selectedRadio: id });
   }
@@ -129,6 +139,11 @@ export default class Images extends Component {
   }
 
   handleDelete3() {
+    database.ref("c3images/").remove()
+    this.setState({ selectedRadio: null });
+  }
+
+  handleDelete4() {
     database.ref("c3images/").remove()
     this.setState({ selectedRadio: null });
   }
@@ -169,6 +184,9 @@ export default class Images extends Component {
         <button className="carousel-button" onClick={this.handleClickC3}>
           add to carousel 3
         </button>
+        <button className="carousel-button" onClick={this.handleClickC4}>
+          add to carousel 4
+        </button>
         <br/>
         <button className="carousel-button" onClick={this.handleDelete1}>
         clear carousel 1
@@ -178,6 +196,9 @@ export default class Images extends Component {
         </button>
         <button className="carousel-button" onClick={this.handleDelete3}>
         clear carousel 3
+        </button>
+        <button className="carousel-button" onClick={this.handleDelete4}>
+        clear carousel 4
         </button>
       </div>
     );

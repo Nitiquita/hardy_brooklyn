@@ -12,6 +12,7 @@ import Contact from "./Contact";
 import Admin from "./Admin";
 import Media from "./Media";
 import Carousel3 from "./Carousel3";
+import Carousel4 from "./Carousel4";
 
 export default class Home extends Component {
   constructor(props) {
@@ -73,6 +74,7 @@ export default class Home extends Component {
         <Media/>
         <Carousel3 width={this.state.width} />
         <Contact/>
+        <Carousel4 width={this.state.width} />
       </div>
     );
   }

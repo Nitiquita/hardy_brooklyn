@@ -393,11 +393,17 @@ textarea {
 .slider-box {
     background-color: rgba(76, 0, 130, 0.644);
     padding: 10px;
+    text-align: center;
 }
 
 .slick-track {
     display: flex;
     align-items: center;
+}
+
+.carousel-title a {
+    text-decoration: none;
+    color: white;
 }
 
 
