@@ -119,6 +119,7 @@ export default class Contact extends Component {
           <br />
           <button type="submit">SUBMIT</button>
           </div>
+          <div class="g-recaptcha" data-sitekey="6LffelcUAAAAAAZsezOIREOirUQMKa9mtk7lpELa"></div>
         </form>
       </section>
     );

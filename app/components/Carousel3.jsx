@@ -37,7 +37,7 @@ export default class Carousel3 extends Component {
     };
     return (
       <div className="slider-box">
-      <h6 class="carousel-title"><a href="http://solas.studio">Live Art Soiree Events with Solas Studio</a></h6>
+      <h6 className="carousel-title"><a href="http://solas.studio">Live Art Soiree Events with Solas Studio</a></h6>
       <Slider {...settings}>
     {this.state.selectedImages && this.state.selectedImages.map((image, idx) => {
         return <img className="carousel-image" src={image["imageURL"]} key={idx}/>
