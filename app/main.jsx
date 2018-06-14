@@ -12,6 +12,7 @@ import {
 import Home from "./components/Home";
 import Admin from "./components/Admin";
 import Recaptcha from "react-recaptcha";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 import { isAuthenticated } from "./components/Nav";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <Switch>
         <Route exact path="/" component={Home} />
         <PrivateRoute path="/admin" component={Admin} />
+        <Route path="/privacy" component={PrivacyPolicy}/>
         <Recaptcha sitekey="6LffelcUAAAAAAZsezOIREOirUQMKa9mtk7lpELa" />
       </Switch>
     </HashRouter>,
